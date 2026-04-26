@@ -1,0 +1,2983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrueMark Templates | Social Media Management &amp; Graphic Design | US &amp; UK</title>
+<meta name="description" content="Done-for-you monthly social media packages, graphic design, and Canva templates for businesses across the US and UK. Top Rated on Upwork. Book a free call today.">
+<meta name="keywords" content="social media management, graphic design, Canva templates, healthcare marketing, real estate marketing, small business design, US UK">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* === Merged: shared base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green: #22c55e;
+  --green-dim: #4ade80;
+  --green-bg: rgba(34,197,94,0.06);
+  --green-border: rgba(34,197,94,0.18);
+  --blue: #3b82f6;
+  --blue-dim: #93c5fd;
+  --bg-primary: #04060c;
+  --bg-secondary: #02040a;
+  --bg-card: rgba(255,255,255,0.02);
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.12);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.5);
+  --text-muted: rgba(255,255,255,0.35);
+  --font-display: 'poppins';
+  --font-body: 'poppins';
+  --radius: 12px;
+  --radius-lg: 18px;
+  --section-pad: 88px 48px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.layout-mobile { }
+.layout-desktop { display: none; }
+@media (min-width: 993px) {
+  .layout-mobile { display: none !important; }
+  .layout-desktop { display: block !important; }
+}
+
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes reviewSlide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 992px) {
+
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.5px; line-height: 1.1; }
+h1 { font-size: 36px; font-weight: 550; letter-spacing: -1.5px; }
+h2 { font-size: 28px; font-weight: 500; letter-spacing: -0.8px; }
+h3 { font-size: 17px; font-weight: 450; }
+em { color: var(--green); font-style: italic; }
+p { font-weight: 300; }
+
+section { padding: 52px 20px; border-bottom: 1px solid var(--border); }
+section.alt { background: var(--bg-secondary); }
+
+.eyebrow {
+  font-size: 10px; color: var(--green); letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 600;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+}
+.eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--green); }
+
+/* ===== NAV ===== */
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(4,6,12,0.97);
+  position: sticky; top: 0; z-index: 200;
+  backdrop-filter: blur(12px);
+}
+
+.nav-hamburger {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  cursor: pointer; flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block; width: 18px; height: 1.5px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-brand {
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+  position: absolute; left: 50%; transform: translateX(-50%);
+}
+.nav-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: #fff; white-space: nowrap; }
+.nav-name span { color: var(--green); }
+
+.nav-cta {
+  background: var(--green); color: #fff; border: none;
+  padding: 9px 14px; border-radius: 8px;
+  font-size: 11px; font-weight: 600; font-family: var(--font-body);
+  text-decoration: none; white-space: nowrap; flex-shrink: 0;
+}
+
+/* Mobile drawer */
+.nav-drawer {
+  position: fixed; top: 65px; left: 0; right: 0; bottom: 0;
+  background: rgba(2,4,10,0.98);
+  backdrop-filter: blur(16px);
+  z-index: 199;
+  padding: 36px 24px;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column; gap: 6px;
+  border-top: 1px solid var(--border);
+}
+.nav-drawer.open { transform: translateX(0); }
+
+.drawer-link {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 15px; font-weight: 500;
+  background: rgba(255,255,255,0.02);
+  transition: all 0.2s;
+}
+.drawer-link:active { background: rgba(34,197,94,0.06); border-color: var(--green-border); color: #fff; }
+.drawer-link-num { font-size: 10px; color: var(--text-muted); letter-spacing: 1px; min-width: 22px; }
+
+.drawer-bottom {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.drawer-cta {
+  display: block; width: 100%; padding: 16px;
+  background: var(--green); color: #fff; border: none;
+  border-radius: 12px; font-size: 14px; font-weight: 600;
+  font-family: var(--font-body); text-decoration: none;
+  text-align: center; cursor: pointer;
+}
+
+/* ===== HERO ===== */
+#m-hero {
+  padding: 48px 20px 52px;
+  background: radial-gradient(ellipse 100% 50% at 50% 0%, rgba(34,197,94,0.06) 0%, transparent 65%),
+              var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(34,197,94,0.08); border: 1px solid var(--green-border);
+  color: var(--green-dim); font-size: 10px; padding: 5px 14px;
+  border-radius: 100px; margin-bottom: 22px; letter-spacing: 1.5px;
+  text-transform: uppercase; font-weight: 500;
+}
+.badge-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+
+#m-hero h1 { margin-bottom: 16px; }
+.hero-sub { color: var(--text-secondary); font-size: 14px; line-height: 1.85; margin-bottom: 28px; }
+
+.hero-btns { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+.btn-green-full {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--green); color: #fff; border: none;
+  padding: 15px 24px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; font-family: var(--font-body);
+  text-decoration: none; cursor: pointer;
+}
+.btn-ghost-full {
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.55);
+  border: 1px solid var(--border);
+  padding: 14px 24px; border-radius: 10px;
+  font-size: 14px; font-weight: 500; font-family: var(--font-body);
+  text-decoration: none;
+}
+
+.trust-row { display: flex; align-items: center; gap: 14px; }
+.avatars { display: flex; }
+.avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+  background: rgba(34,197,94,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px; font-weight: 700; color: var(--green-dim);
+  margin-left: -7px;
+}
+.avatar:first-child { margin-left: 0; }
+.trust-text { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+.trust-text strong { color: rgba(255,255,255,0.65); font-weight: 500; }
+
+/* ===== STATS STRIP (2x2 grid) ===== */
+.stats-strip {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: rgba(255,255,255,0.015);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* ===== TICKER ===== */
+.ticker {
+  background: rgba(34,197,94,0.025);
+  border-bottom: 1px solid rgba(34,197,94,0.08);
+  padding: 11px 0; overflow: hidden; white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-flex; gap: 36px;
+  animation: ticker 22s linear infinite;
+}
+
+.tick-item { font-size: 10px; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+.tick-sep { color: var(--green); font-size: 8px; }
+
+/* ===== PROBLEM ===== */
+.problem-box {
+  background: rgba(59,130,246,0.04); border: 1px solid rgba(59,130,246,0.1);
+  border-radius: 14px; padding: 28px 22px; margin-top: 28px;
+}
+.problem-box p { font-size: 14px; color: var(--text-secondary); line-height: 2; margin-bottom: 12px; }
+.problem-box p:last-child { margin-bottom: 0; }
+.problem-box strong { color: #fff; font-weight: 500; }
+.problem-highlight { color: var(--green); }
+
+/* ===== SERVICES - Horizontal scroll cards ===== */
+#m-services { padding: 52px 0; }
+#m-services .section-header { padding: 0 20px; margin-bottom: 28px; }
+#m-services h2 { padding: 0 20px; }
+#m-services > p { padding: 0 20px; }
+
+.services-scroll-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 20px 4px;
+  scroll-snap-type: x mandatory;
+}
+.services-scroll-wrap::-webkit-scrollbar { display: none; }
+
+.services-scroll {
+  display: flex; gap: 12px;
+  width: max-content;
+}
+
+.service-card {
+  width: 78vw; max-width: 300px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  transition: border-color 0.2s;
+}
+.service-card:last-child { margin-right: 20px; }
+
+.svc-num { font-size: 12px; color: var(--green); letter-spacing: 2px; font-weight: 600; margin-bottom: 12px; }
+.svc-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(34,197,94,0.07); border: 1px solid var(--green-border);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+}
+.svc-icon svg { width: 20px; height: 20px; }
+.service-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+.service-card p { font-size: 12px; color: var(--text-muted); line-height: 1.8; margin-bottom: 14px; }
+.svc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.svc-tag {
+  font-size: 12px; color: var(--green-dim);
+  background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.12);
+  padding: 3px 9px; border-radius: 100px;
+}
+
+/* Scroll indicator dots */
+.scroll-dots {
+  display: flex; justify-content: center; gap: 6px;
+  padding: 16px 0 0;
+}
+.scroll-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+.scroll-dot.active { background: var(--green); width: 16px; border-radius: 3px; }
+
+/* ===== PORTFOLIO ===== */
+.portfolio-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-top: 32px;
+}
+.port-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+}
+.port-img {
+  height: 100px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px; padding: 10px;
+}
+.port-img-ph { font-size: 24px; opacity: 0.18; }
+.port-img-label { font-size: 8px; color: rgba(255,255,255,0.12); text-align: center; }
+.port-info { padding: 10px 12px; border-top: 1px solid var(--border); }
+.port-cat { font-size: 10px; color: var(--green); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.port-title { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 1.3; }
+
+/* ===== TRUST GRID ===== */
+.trust-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-bottom: 0; margin-top: 32px;
+}
+.trust-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 14px; text-align: center;
+}
+.trust-icon-wrap {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px;
+}
+.trust-card h4 { font-size: 12px; font-weight: 500; margin-bottom: 4px; }
+.trust-card p { font-size: 10px; color: var(--text-muted); line-height: 1.6; }
+
+/* ===== PACKAGES ===== */
+.packages-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+
+.pkg {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 28px 22px;
+}
+.pkg.featured { background: rgba(34,197,94,0.035); border-color: rgba(34,197,94,0.25); }
+.pkg-popular {
+  font-size: 9px; color: var(--green); letter-spacing: 2px;
+  text-transform: uppercase; font-weight: 600;
+  display: flex; align-items: center; gap: 6px; margin-bottom: 10px;
+}
+.pkg-popular::before { content: ''; width: 5px; height: 5px; background: var(--green); border-radius: 50%; }
+.pkg-tier { font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.pkg-price { font-family: var(--font-display); font-size: 48px; font-weight: 700; line-height: 1; letter-spacing: -2px; margin-bottom: 2px; }
+.pkg-price sub { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+.pkg-hours { font-size: 11px; color: var(--text-muted); margin-bottom: 22px; }
+.pkg hr { border: none; border-top: 1px solid var(--border); margin: 0 0 16px; }
+.pkg-feature {
+  font-size: 12px; color: var(--text-secondary);
+  padding: 5px 0; display: flex; gap: 10px; align-items: flex-start; font-weight: 300;
+}
+.feat-check { color: var(--green); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+.pkg-btn {
+  width: 100%; margin-top: 20px; padding: 14px; border-radius: 9px;
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font-body);
+}
+.pkg-btn-primary { background: var(--green); color: #fff; border: none; }
+.pkg-btn-secondary { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+.pkg-footnote { text-align: center; font-size: 11px; color: var(--green); margin-top: 16px; }
+
+.urgency-bar {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: rgba(34,197,94,0.05); border: 1px solid var(--green-border);
+  border-radius: 10px; padding: 12px 16px; margin-top: 16px;
+  font-size: 11px; color: var(--green-dim);
+}
+.urgency-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
+
+
+/* ===== ETSY ===== */
+.etsy-kits { display: flex; flex-direction: column; gap: 9px; margin: 24px 0; }
+.etsy-kit-row {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 11px 14px;
+}
+.kit-icon {
+  width: 30px; height: 30px; border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.kit-name { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.8); }
+.kit-desc { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+.kit-price { font-size: 12px; color: var(--green-dim); font-weight: 600; margin-left: auto; flex-shrink: 0; }
+
+.etsy-box {
+  background: rgba(34,197,94,0.03); border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; margin-top: 28px;
+}
+.etsy-shop-logo {
+  width: 56px; height: 56px; background: rgba(34,197,94,0.1); border: 1px solid var(--green-border);
+  border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+}
+.etsy-box h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.etsy-box > p { font-size: 12px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+.etsy-stats { display: flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+.etsy-stat { flex: 1; padding: 12px 8px; text-align: center; border-right: 1px solid var(--border); }
+.etsy-stat:last-child { border-right: none; }
+.etsy-stat-num { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+.etsy-stat-lbl { font-size: 9px; color: var(--text-muted); margin-top: 2px; }
+.etsy-cta {
+  display: block; width: 100%; padding: 15px;
+  border-radius: 10px; background: var(--green); color: #fff; border: none;
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font-body);
+  text-decoration: none; margin-bottom: 8px;
+}
+.etsy-note { font-size: 10px; color: rgba(255,255,255,0.18); }
+
+/* ===== REVIEWS ===== */
+.review { padding: 28px 0; border-bottom: 1px solid var(--border); }
+.review:first-child { border-top: 1px solid var(--border); }
+.stars { font-size: 12px; letter-spacing: 2px; margin-bottom: 10px; color: #fbbf24; }
+.review-quote {
+  font-family: var(--font-display); font-size: 17px; font-weight: 600;
+  color: rgba(255,255,255,0.8); line-height: 1.5; margin-bottom: 14px; font-style: italic;
+}
+.review-author { display: flex; align-items: center; gap: 10px; }
+.reviewer-av {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(34,197,94,0.1); border: 1px solid var(--green-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 700; color: var(--green-dim); flex-shrink: 0;
+}
+.reviewer-name { font-size: 11px; color: rgba(255,255,255,0.45); font-weight: 500; }
+.reviewer-role { font-size: 9px; color: var(--text-muted); }
+
+/* ===== ABOUT ===== */
+.about-card {
+  background: rgba(34,197,94,0.03); border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg); padding: 24px 18px; text-align: center; margin-bottom: 28px;
+}
+.about-av {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: rgba(34,197,94,0.1); border: 2px solid rgba(34,197,94,0.2);
+  margin: 0 auto 12px;
+  padding: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.about-av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+.about-name { font-family: var(--font-display); font-size: 16px; font-weight: 600; margin-bottom: 3px; }
+.about-role { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+.about-badges { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.about-badge {
+  font-size: 12px; color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  padding: 5px 10px; border-radius: 7px;
+  display: flex; align-items: center; gap: 6px;
+}
+.about-badge::before { content: ''; width: 4px; height: 4px; background: var(--green); border-radius: 50%; }
+.about-text { font-size: 13px; color: var(--text-secondary); line-height: 2; margin-bottom: 12px; }
+.about-text strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+.skill-tags { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 18px; }
+.skill-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(59,130,246,0.07); border: 1px solid rgba(59,130,246,0.14);
+  color: var(--blue-dim); font-size: 10px; padding: 4px 10px; border-radius: 100px;
+}
+
+/* ===== CONTACT ===== */
+.contact-card {
+  background: rgba(34,197,94,0.03); border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg); padding: 28px 20px; margin-bottom: 28px;
+}
+.contact-card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.contact-card > p { font-size: 12px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+.contact-items { display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
+.contact-item { display: flex; align-items: center; gap: 9px; font-size: 11px; color: var(--text-secondary); }
+.contact-icon { width: 24px; height: 24px; background: rgba(34,197,94,0.08); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.icon { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.form-group { margin-bottom: 14px; }
+.form-label { font-size: 9px; color: var(--text-muted); display: block; margin-bottom: 6px; letter-spacing: 2px; text-transform: uppercase; }
+.form-input {
+  width: 100%; background: rgba(255,255,255,0.03); border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+  padding: 10px 0; color: rgba(255,255,255,0.7); font-size: 13px;
+  font-family: var(--font-body); outline: none;
+}
+.form-input::placeholder { color: rgba(255,255,255,0.22); }
+.form-submit {
+  width: 100%; background: var(--green); color: #fff; border: none;
+  padding: 15px; border-radius: 10px; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: var(--font-body); margin-top: 8px;
+}
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  padding: 64px 20px; text-align: center;
+  background: var(--bg-secondary); position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(34,197,94,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-cta h2 { position: relative; z-index: 1; margin-bottom: 12px; }
+.final-cta p { color: var(--text-secondary); font-size: 13px; margin-bottom: 28px; position: relative; z-index: 1; }
+.final-cta-btns { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+
+/* ===== FOOTER ===== */
+footer { background: #01020a; padding: 40px 20px; border-top: 1px solid var(--border); }
+.footer-brand-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.footer-brand-name span { color: var(--green); }
+.footer-tagline { font-size: 12px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; max-width: 220px; }
+.footer-links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 32px; }
+.footer-col h4 { font-size: 12px; color: var(--text-muted); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 12px; color:#fff; text-decoration: none; margin-bottom: 9px; font-weight: 300; }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 18px; }
+.footer-copy { font-size: 10px; color: #fff; margin-bottom: 10px; }
+.footer-social { display: flex; gap: 18px; flex-wrap: wrap; }
+.footer-social a { font-size: 10px; color: #fff; text-decoration: none; }
+.stats-strip {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background: rgba(255,255,255,0.015);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stats-strip::-webkit-scrollbar { display: none; }
+
+.stats-strip .cell {
+  flex: 0 0 auto;
+  min-width: 90px;
+  padding: 18px 14px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stats-strip .cell:last-child { border-right: none; }
+
+.stats-strip .num {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+.stats-strip .num span { color: var(--green); }
+.stats-strip .lbl {
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 5px;
+  white-space: nowrap;
+}
+
+
+.review-card {
+  width: 78vw;
+  max-width: 300px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+#m-reviewsScroll::-webkit-scrollbar { display: none; }
+}
+
+@media (min-width: 993px) {
+
+
+
+
+
+
+
+/* ============ TYPOGRAPHY ============ */
+h1, h2, h3 { font-family: var(--font-display);  letter-spacing: -0.5px; line-height: 1.08; }
+h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 550; letter-spacing: -2px; }
+h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 500; letter-spacing: -1px; line-height: 1.1; }
+h3 { font-size: 18px; font-weight: 450; }
+em { color: var(--green); font-style: italic; }
+p { font-size: 17px; font-weight: 300; }
+
+/* ============ LAYOUT ============ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+section { padding: var(--section-pad); border-bottom: 1px solid var(--border); }
+section.alt { background: var(--bg-secondary); }
+
+/* ============ EYEBROW LABEL ============ */
+.eyebrow {
+  font-size: 12px; color: var(--green); letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 600;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--green); }
+
+/* ============ BUTTONS ============ */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 9px; font-size: 14px; font-weight: 600; font-family: var(--font-body); cursor: pointer; text-decoration: none; border: none; transition: all 0.2s; }
+.btn-green { background: var(--green); color: #fff; }
+.btn-green:hover { background: #16a34a; }
+.btn-ghost { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.6); border: 1px solid var(--border); }
+.btn-ghost:hover { background: rgba(255,255,255,0.07); }
+.btn-blue { background: rgba(59,130,246,0.12); color: var(--blue-dim); border: 1px solid rgba(59,130,246,0.2); }
+
+/* ============ NAV ============ */
+nav {
+  padding: 18px 48px; display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--border); background: rgba(4,6,12,0.97);
+  position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px);
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #fff; }
+.nav-name span { color: var(--green); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--text-secondary); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: #fff; }
+
+/* ============ HERO ============ */
+#hero {
+  padding: 96px 48px 80px; position: relative; overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(34,197,94,0.05) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 50% at 20% 80%, rgba(59,130,246,0.06) 0%, transparent 55%),
+              var(--bg-primary);
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(34,197,94,0.08); border: 1px solid var(--green-border);
+  color: var(--green-dim); font-size: 11px; padding: 6px 16px;
+  border-radius: 100px; margin-bottom: 28px; letter-spacing: 1.5px;
+  text-transform: uppercase; font-weight: 500;
+}
+.badge-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+.hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+.hero-sub { color: var(--text-secondary); font-size: 16px; max-width: 520px; line-height: 1.85; margin: 20px 0 36px; }
+.hero-btns { display: flex; gap: 12px; margin-bottom: 44px; flex-wrap: wrap; }
+.trust-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.avatars { display: flex; }
+.avatar { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--bg-primary); background: rgba(34,197,94,0.15); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: var(--green-dim); margin-left: -8px; }
+.avatar:first-child { margin-left: 0; }
+.trust-text { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.trust-text strong { color: rgba(255,255,255,0.65); font-weight: 500; }
+
+/* Hero stats cards */
+.hero-stats { display: flex; flex-direction: column; gap: 11px; }
+.stat-card {
+  background: rgba(255,255,255,0.025); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 22px;
+  display: flex; align-items: center; gap: 16px;
+  transition: border-color 0.2s;
+}
+.stat-card:hover { border-color: rgba(34,197,94,0.2); }
+.stat-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(34,197,94,0.08); border: 1px solid var(--green-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.stat-num { font-family: var(--font-display); font-size: 28px; font-weight: 800; line-height: 1; }
+.stat-num sup { font-size: 14px; color: var(--green); }
+.stat-label { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+
+/* ============ STATS STRIP ============ */
+.stats-strip { display: flex; background: rgba(255,255,255,0.015); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stats-strip .cell { flex: 1; padding: 24px 16px; text-align: center; border-right: 1px solid var(--border); }
+.stats-strip .cell:last-child { border-right: none; }
+.stats-strip .num { font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1; }
+.stats-strip .num span { color: var(--green); }
+.stats-strip .lbl { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+
+/* ============ TICKER ============ */
+.ticker { background: rgba(34,197,94,0.025); border-bottom: 1px solid rgba(34,197,94,0.08); padding: 12px 0; overflow: hidden; white-space: nowrap; }
+.ticker-inner { display: inline-flex; gap: 44px; animation: ticker 25s linear infinite; }
+.ticker-inner:hover { animation-play-state: paused; }
+
+.tick-item { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 2px; text-transform: uppercase; }
+.tick-sep { color: var(--green); font-size: 9px; }
+
+/* ============ PROBLEM SECTION ============ */
+
+.problem-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  /* margin-top: 60px; */
+}
+
+.problem-left {
+  flex: 1;
+  max-width: 50%;
+}
+
+.problem-left h2 {
+  font-size: 42px;
+  line-height: 1.2;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.problem-box {
+  flex: 1;
+  max-width: 760px;
+  background: rgba(59,130,246,0.04);
+  border: 1px solid rgba(59,130,246,0.1);
+  border-radius: 16px;
+  padding: 40px 44px;
+}
+
+.problem-box p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 2;
+  margin-bottom: 14px;
+}
+
+.problem-box p:last-child {
+  margin-bottom: 0;
+}
+
+.problem-box strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+.problem-highlight {
+  color: var(--green);
+  font-style: normal;
+}
+/* ============ SERVICES ============ */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.service-card { background: var(--bg-primary); padding: 32px 26px; transition: background 0.25s; }
+.service-card:hover { background: #070b14; }
+.svc-num { font-size: 12px; color: var(--green); letter-spacing: 2px; font-weight: 600; margin-bottom: 14px; }
+.svc-icon { width: 50px; height: 50px; border-radius: 12px; background: rgba(34,197,94,0.07); border: 1px solid var(--green-border); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.svc-icon svg { width: 22px; height: 22px; }
+.service-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+.service-card p { font-size: 12px; color: var(--text-muted); line-height: 1.8; margin-bottom: 14px; }
+.svc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.svc-tag { font-size: 12px; color: var(--green-dim); background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.12); padding: 3px 9px; border-radius: 100px; }
+
+/* ============ PORTFOLIO ============ */
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 12px; }
+.port-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.2s; cursor: pointer; }
+.port-card:hover { border-color: rgba(34,197,94,0.22); background: rgba(34,197,94,0.025); transform: translateY(-2px); }
+.port-img { height: 130px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 12px; }
+/* === REPLACE port-img backgrounds with actual screenshots === */
+.port-img-ph { font-size: 28px; opacity: 0.18; }
+.port-img-label { font-size: 10px; color: rgba(255,255,255,0.18); text-align: center; letter-spacing: 0.5px; }
+.port-info { padding: 14px 16px; border-top: 1px solid var(--border); }
+.port-cat { font-size: 9px; color: var(--green); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
+.port-title { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.8); }
+
+/* ============ TRUST GRID ============ */
+.trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 52px; }
+.trust-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 18px; text-align: center; }
+.trust-icon-wrap { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+.trust-card h4 { font-size: 13px; font-weight: 500; margin-bottom: 5px; }
+.trust-card p { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+
+/* ============ PACKAGES ============ */
+.packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.pkg {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 36px 28px;
+  transition: border-color 0.2s;
+}
+.pkg.featured { background: rgba(34,197,94,0.035); border-color: rgba(34,197,94,0.25); }
+.pkg-popular { font-size: 9px; color: var(--green); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+.pkg-popular::before { content: ''; width: 5px; height: 5px; background: var(--green); border-radius: 50%; }
+.pkg-tier { font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+.pkg-price { font-family: var(--font-display); font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -2px; margin-bottom: 4px; }
+.pkg-price sub { font-size: 15px; font-weight: 400; color: var(--text-muted); }
+.pkg-hours { font-size: 11px; color: var(--text-muted); margin-bottom: 28px; }
+.pkg hr { border: none; border-top: 1px solid var(--border); margin: 0 0 20px; }
+.pkg-feature { font-size: 12px; color: var(--text-secondary); padding: 6px 0; display: flex; gap: 10px; align-items: flex-start; font-weight: 300; }
+.feat-check { color: var(--green); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+.pkg-btn { width: 100%; margin-top: 24px; padding: 14px; border-radius: 9px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font-body); }
+.pkg-btn-primary { background: var(--green); color: #fff; border: none; }
+.pkg-btn-secondary { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+.pkg-footnote { text-align: center; font-size: 11px; margin-top: 18px; }
+.urgency-bar {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: rgba(34,197,94,0.05); border: 1px solid var(--green-border);
+  border-radius: 10px; padding: 13px 20px; margin-top: 20px;
+  font-size: 12px; color: var(--green-dim);
+}
+.urgency-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+
+
+/* ============ ETSY SECTION ============ */
+.etsy-section {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  padding: var(--section-pad);
+}
+.etsy-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+}
+.etsy-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(34,197,94,0.06); border: 1px solid var(--green-border);
+  color: var(--green-dim); font-size: 10px; padding: 5px 14px;
+  border-radius: 100px; margin-bottom: 20px; letter-spacing: 1.5px; text-transform: uppercase;
+}
+.etsy-label svg { width: 12px; height: 12px; }
+.etsy-left h2 { margin-bottom: 14px; }
+.etsy-left p { color: var(--text-secondary); font-size: 14px; line-height: 1.85; margin-bottom: 28px; }
+.etsy-kits { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.etsy-kit-row {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 16px;
+  transition: border-color 0.2s;
+}
+.etsy-kit-row:hover { border-color: rgba(34,197,94,0.2); }
+.kit-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.kit-name { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.8); }
+.kit-desc { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+.kit-price { font-size: 12px; color: var(--green-dim); font-weight: 600; margin-left: auto; flex-shrink: 0; }
+.etsy-right {
+  background: rgba(34,197,94,0.03); border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg); padding: 40px 36px; text-align: center;
+}
+.etsy-shop-logo { width: 64px; height: 64px; background: rgba(34,197,94,0.1); border: 1px solid var(--green-border); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.etsy-right h3 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+.etsy-right p { font-size: 13px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+.etsy-stats { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+.etsy-stat { flex: 1; padding: 14px 12px; text-align: center; border-right: 1px solid var(--border); }
+.etsy-stat:last-child { border-right: none; }
+.etsy-stat-num { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #fff; }
+.etsy-stat-lbl { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+.etsy-cta { width: 100%; padding: 15px; border-radius: 9px; background: var(--green); color: #fff; border: none; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--font-body); text-decoration: none; display: block; margin-bottom: 10px; }
+.etsy-note { font-size: 11px; color: rgba(255,255,255,0.18); }
+
+/* ============ REVIEWS ============ */
+.reviews-slider-wrap {
+  overflow: hidden;
+  position: relative;
+  /* Fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: reviewSlide 28s linear infinite;
+}
+
+.reviews-track:hover {
+  animation-play-state: paused;
+}
+
+
+
+.review-slide {
+  width: 380px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: border-color 0.25s, background 0.25s;
+  cursor: default;
+}
+
+.review-slide:hover {
+  border-color: rgba(34,197,94,0.22);
+  background: rgba(34,197,94,0.025);
+}
+
+.review-slide .stars {
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  color: #fbbf24;
+}
+
+.review-slide .review-quote {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.review-slide .review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-slide .reviewer-av {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--green-dim);
+  flex-shrink: 0;
+}
+
+.review-slide .reviewer-name {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 500;
+}
+
+.review-slide .reviewer-role {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+/* ============ ABOUT ============ */
+.about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: center; }
+.about-card { background: rgba(34,197,94,0.03); border: 1px solid var(--green-border); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; }
+.about-av { width: 84px; height: 84px; border-radius: 50%; background: rgba(34,197,94,0.1); border: 2px solid rgba(34,197,94,0.2); margin: 0 auto 14px; padding: 0; overflow: hidden; }
+.about-av img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
+.about-name { font-family: var(--font-display); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.about-role { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+.about-badges { display: flex; flex-direction: column; gap: 10px; }
+.about-badge { font-size: 12px; color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 6px 10px; border-radius: 7px; display: flex; align-items: center; gap: 7px; }
+.about-badge::before { content: ''; width: 4px; height: 4px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+.about-text { font-size: 13px; color: var(--text-secondary); line-height: 2; margin-bottom: 16px; }
+.about-text strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+.skill-tags {  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.skill-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(59,130,246,0.07); border: 1px solid rgba(59,130,246,0.14); color: var(--blue-dim); font-size: 12px; padding: 4px 12px; border-radius: 100px; }
+
+/* ============ CONTACT ============ */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.contact-card { background: rgba(34,197,94,0.03); border: 1px solid var(--green-border); border-radius: var(--radius-lg); padding: 36px; }
+.contact-card h3 { font-family: var(--font-display); font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+.contact-card > p { font-size: 13px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+.contact-items { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.contact-item { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-secondary); }
+.contact-icon { width: 26px; height: 26px; background: rgba(34,197,94,0.08); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.form-group { margin-bottom: 16px; }
+.form-label { font-size: 9px; color: var(--text-muted); display: block; margin-bottom: 7px; letter-spacing: 2px; text-transform: uppercase; }
+.form-input { width: 100%; background: rgba(255,255,255,0.03); border: none; border-bottom: 1px solid rgba(255,255,255,0.09); padding: 11px 0; color: rgba(255,255,255,0.7); font-size: 13px; font-family: var(--font-body); outline: none; }
+.form-input::placeholder { color: rgba(255,255,255,0.25); }
+.form-submit { width: 100%; background: var(--green); color: #fff; border: none; padding: 15px; border-radius: 9px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font-body); margin-top: 8px; }
+
+/* ============ FINAL CTA ============ */
+.final-cta {
+  padding: 96px 48px; text-align: center; background: var(--bg-secondary); position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 70% at 50% 50%, rgba(34,197,94,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-cta h2 { position: relative; z-index: 1; margin-bottom: 14px; }
+.final-cta p { color: var(--text-secondary); font-size: 14px; margin-bottom: 32px; position: relative; z-index: 1; }
+.final-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+/* ============ FOOTER ============ */
+footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--border); }
+.footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 36px; margin-bottom: 44px; }
+.footer-brand-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; }
+.footer-brand-name span { color: var(--green); }
+.footer-tagline { font-size: 12px; color: var(--text-muted); margin-top: 7px; max-width: 200px; line-height: 1.8; }
+.footer-col h4 { font-size: 12px; color: var(--text-muted); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 12px; color: #fff; text-decoration: none; margin-bottom: 10px; font-weight: 300; }
+.footer-col a:hover { color: rgba(255,255,255,0.55); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 12px; color: #fff; }
+.footer-social { display: flex; gap: 20px; }
+.footer-social a { font-size: 12px; color: #fff; text-decoration: none; }
+
+/* ============ SVG ICONS (inline, no library needed) ============ */
+.icon { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+
+/* ===== THANK YOU POPUP ===== */
+.thank-you-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.3s ease-in-out;
+}
+
+.popup-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+.popup-content h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.popup-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Form validation styles */
+.form-input.error {
+  border-bottom-color: #ef4444;
+  color: #ef4444;
+}
+
+.form-error-message {
+  color: #ef4444;
+  font-size: 11px;
+  margin-top: 4px;
+  display: none;
+}
+
+.form-input.error + .form-error-message {
+  display: block;
+}
+
+.form-group {
+  position: relative;
+}
+
+/* Hide YouTube player elements */
+.hero-video iframe {
+  position: relative;
+}
+
+.hero-video::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Hide YouTube overlays */
+.ytp-cued-thumbnail-overlay,
+.ytp-title,
+.ytp-subscribe-button,
+.ytp-share-button,
+.ytp-watch-later-button,
+.ytp-youtube-button,
+.ytp-pause-overlay,
+.ytp-large-play-button {
+  display: none !important;
+}
+}
+
+</style>
+</head>
+<body>
+<div class="layout-mobile">
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="nav-hamburger" id="m-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+  <a href="#" class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 80 80" fill="none">
+      <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+      <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-name">TrueMark<span>Templates</span></span>
+  </a>
+  <a href="#m-contact" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="nav-drawer" id="m-navDrawer">
+  <a href="#m-services" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">01</span>Services</a>
+  <a href="#m-work" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">02</span>Work</a>
+  <a href="#m-packages" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">03</span>Packages</a>
+  <a href="#m-templates" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">04</span>Templates</a>
+  <a href="#m-about" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">05</span>About</a>
+  <a href="#m-contact" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">06</span>Contact</a>
+  <div class="drawer-bottom">
+    <a href="#m-contact" class="drawer-cta" onclick="closeMenu()">Get a free quote →</a>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="m-hero">
+  <div class="hero-badge"><span class="badge-dot"></span>Top Rated · Upwork · 100% Job Success</div>
+  <h1>Designs That Build Trust &amp; <em>Drive Sales.</em></h1>
+  <p class="hero-sub">Done-for-you social media packages, graphic design, and brand visuals for businesses ready to grow. Serving clients across the US, UK, and beyond.</p>
+  <div class="hero-btns">
+    <a href="#m-packages" class="btn-green-full">See packages &amp; pricing →</a>
+    <a href="#m-work" class="btn-ghost-full">View our work</a>
+  </div>
+  <div class="trust-row">
+    <div class="avatars">
+      <div class="avatar">CO</div>
+      <div class="avatar">TT</div>
+      <div class="avatar">CL</div>
+      <div class="avatar" style="font-size:9px;">+</div>
+    </div>
+    <div class="trust-text"><strong>Trusted by 46+ businesses</strong><br>Healthcare · Real Estate · Agencies · Coaches</div>
+  </div>
+</section>
+
+<!-- ===== STATS STRIP ===== -->
+<div class="stats-strip">
+  <div class="cell"><div class="num">46<span>+</span></div><div class="lbl">Projects</div></div>
+  <div class="cell"><div class="num">6<span>+</span></div><div class="lbl">Years exp.</div></div>
+  <div class="cell"><div class="num">100<span>%</span></div><div class="lbl">Job Success</div></div>
+  <div class="cell"><div class="num">5<span>★</span></div><div class="lbl">Avg rating</div></div>
+  <div class="cell"><div class="num">US<span>+UK</span></div><div class="lbl">Primary markets</div></div>
+</div>
+
+
+
+<!-- ===== TICKER ===== -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
+    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
+    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
+    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
+    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
+    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
+  </div>
+</div>
+
+<!-- ===== PROBLEM ===== -->
+<section>
+  <div class="eyebrow">The problem</div>
+  <h2>Your business deserves better than random posting.</h2>
+  <div class="problem-box">
+    <p>Most businesses — clinics, agencies, realtors, coaches — <strong>know they need consistent social media.</strong> But between running day-to-day operations, it never gets done right.</p>
+    <p><span class="problem-highlight">Inconsistent posts. Generic graphics. No strategy. No time.</span></p>
+    <p>TrueMark Templates fixes that. We become your <strong>dedicated creative partner</strong> — handling design, captions, and scheduling — so your brand shows up professionally every week.</p>
+  </div>
+</section>
+
+<!-- ===== SERVICES (horizontal scroll) ===== -->
+<section id="m-services" style="padding-left:0;padding-right:0;padding-top:52px;padding-bottom:52px;">
+  <div style="padding:0 20px;">
+    <div class="eyebrow">What we do</div>
+    <h2>Services that grow your brand.</h2>
+    <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 24px;font-weight:300;">Full creative support for any business that needs to look professional online.</p>
+  </div>
+  <div class="services-scroll-wrap" id="m-servicesScroll" >
+    <div class="services-scroll">
+      <div class="service-card" >
+        <div class="svc-num">01</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="9" height="9" rx="2"/><rect x="13" y="3" width="9" height="9" rx="2"/><rect x="2" y="14" width="9" height="9" rx="2"/><rect x="13" y="14" width="9" height="9" rx="2"/></svg>
+        </div>
+        <h3>Social Media Packages</h3>
+        <p>Monthly done-for-you content — designed, written, and scheduled. Instagram, Facebook &amp; LinkedIn covered every week.</p>
+        <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Captions</span><span class="svc-tag">Scheduling</span></div>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">02</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <h3>Print &amp; Marketing</h3>
+        <p>Flyers, brochures, tri-folds, infographics — print-ready and web-optimized. Any format, any industry.</p>
+        <div class="svc-tags"><span class="svc-tag">Flyers</span><span class="svc-tag">Brochures</span><span class="svc-tag">Infographics</span></div>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">03</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <h3>GMB Management</h3>
+        <p>Keep your Google Business Profile active with regular posts, banners, and visuals that attract local customers.</p>
+        <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Banners</span><span class="svc-tag">Optimization</span></div>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">04</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <h3>Canva Templates</h3>
+        <p>Ready-to-use, fully editable Canva template kits for any industry. Download, customize, post in minutes.</p>
+        <div class="svc-tags"><span class="svc-tag">Healthcare</span><span class="svc-tag">Real Estate</span><span class="svc-tag">Business</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- Scroll dots indicator -->
+  <div class="scroll-dots" id="m-scrollDots">
+    <div class="scroll-dot active"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ===== PORTFOLIO ===== -->
+<section id="m-work" class="alt">
+  <div class="eyebrow">Our work</div>
+  <h2>Work that wins clients.</h2>
+  <p style="color:var(--text-secondary);font-size:13px;max-width:480px;margin:10px 0 0;font-weight:300;">Real projects. Real results. For healthcare, real estate, agencies worldwide.</p>
+  <div class="portfolio-grid">
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(34,197,94,0.05);">
+        <div class="port-img-ph">🏥</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Print</div><div class="port-title">CLS Health Infographic</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(59,130,246,0.05);">
+        <div class="port-img-ph">📱</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Social</div><div class="port-title">City Ortho Monthly Posts</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(251,191,36,0.05);">
+        <div class="port-img-ph">🦷</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Print</div><div class="port-title">Tooth Truth Tri-fold</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(34,197,94,0.05);">
+        <div class="port-img-ph">🏠</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Real Estate · Canva</div><div class="port-title">Realtor Templates Pack</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(168,85,247,0.05);">
+        <div class="port-img-ph">💼</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Business · Canva</div><div class="port-title">Freelancer Client Kit</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(239,68,68,0.05);">
+        <div class="port-img-ph">📢</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Digital · Ads</div><div class="port-title">Meta Ad Creatives</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST SIGNALS ===== -->
+<section>
+  <div class="eyebrow">Why trust us</div>
+  <h2>Built on proof, not promises.</h2>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(34,197,94,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <h4>Top Rated · Upwork</h4>
+      <p>100% Job Success Score across 46+ projects</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(59,130,246,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#3b82f6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h4>Real US Clients</h4>
+      <p>NJ, Houston &amp; Reading UK</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(251,191,36,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#fbbf24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h4>Fast Delivery</h4>
+      <p>On-time across every project — no delays</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(168,85,247,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#a855f7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h4>NDA-Ready</h4>
+      <p>Your brand stays private and secure</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(34,197,94,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <h4>24hr Response</h4>
+      <p>Slack, email, or WhatsApp</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(239,68,68,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#ef4444"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h4>6+ Year Track Record</h4>
+      <p>UAE, US &amp; UK clients</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACKAGES ===== -->
+<section id="m-packages" class="alt">
+  <div class="eyebrow">Pricing</div>
+  <h2>Simple monthly packages.<br>No contracts. No surprises.</h2>
+  <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 0;font-weight:300;">Pick the plan that fits your business. Everything included — design, captions, scheduling, strategy.</p>
+  <div class="packages-grid">
+    <div class="pkg">
+      <div class="pkg-tier">Starter</div>
+      <div class="pkg-price">$600<sub>/mo</sub></div>
+      <div class="pkg-hours">~10 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>8 social media posts/mo</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Caption &amp; hashtag writing</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>GMB updates (2/mo)</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Meta scheduling</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly check-in call</div>
+      <button class="pkg-btn pkg-btn-secondary">Get started</button>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-popular">Most popular</div>
+      <div class="pkg-tier">Growth</div>
+      <div class="pkg-price">$1,200<sub>/mo</sub></div>
+      <div class="pkg-hours">~20 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>12 designed posts/mo</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>GMB weekly updates</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Bi-weekly strategy call</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly content calendar</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Story &amp; reel concepts</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly performance report</div>
+      <button class="pkg-btn pkg-btn-primary">Get started →</button>
+    </div>
+    <div class="pkg">
+      <div class="pkg-tier">Full Partner</div>
+      <div class="pkg-price">$2,000<sub>/mo</sub></div>
+      <div class="pkg-hours">~40 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>20 posts all platforms</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Full GMB management</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Weekly strategy calls</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Static ad creatives</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Competitor monitoring</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Priority 24hr response</div>
+      <button class="pkg-btn pkg-btn-secondary">Get started</button>
+    </div>
+  </div>
+  <p class="pkg-footnote">Not sure which plan fits? Book a free 15-min call.</p>
+  <div class="urgency-bar"><span class="urgency-dot"></span>Currently accepting 3 new monthly clients</div>
+</section>
+
+<!-- ===== ETSY / TEMPLATES ===== -->
+<section id="m-templates">
+  <div class="eyebrow">Etsy Shop</div>
+  <h2>Not ready for a full package?<br>Start with a <em>template kit.</em></h2>
+  <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 0;font-weight:300;">Ready-made Canva kits for healthcare, real estate, and business. Instant download, fully editable.</p>
+  <div class="etsy-kits">
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(34,197,94,0.1);">🦴</div>
+      <div><div class="kit-name">Orthopaedic Social Kit</div><div class="kit-desc">30 done-for-you posts</div></div>
+      <div class="kit-price">$14.99</div>
+    </div>
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(59,130,246,0.1);">🦷</div>
+      <div><div class="kit-name">Dental Social Kit</div><div class="kit-desc">30 posts for dental practices</div></div>
+      <div class="kit-price">$14.99</div>
+    </div>
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(168,85,247,0.1);">🏠</div>
+      <div><div class="kit-name">Realtor Social Kit</div><div class="kit-desc">30 posts for real estate agents</div></div>
+      <div class="kit-price">$14.99</div>
+    </div>
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(251,191,36,0.1);">💼</div>
+      <div><div class="kit-name">Freelancer Client Kit</div><div class="kit-desc">Invoice, proposal, onboarding</div></div>
+      <div class="kit-price">$16.99</div>
+    </div>
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(239,68,68,0.1);">✉️</div>
+      <div><div class="kit-name">Email Signature Bundle</div><div class="kit-desc">13 styles for any professional</div></div>
+      <div class="kit-price">$9.99</div>
+    </div>
+  </div>
+  <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="btn-green-full" style="margin-bottom:4px;">Browse all templates on Etsy →</a>
+  <div class="etsy-box">
+    <div class="etsy-shop-logo">
+      <svg width="26" height="26" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+        <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h3>TrueMark Templates</h3>
+    <p>A growing library of professionally designed digital template kits. Each product built for a specific audience.</p>
+    <div class="etsy-stats">
+      <div class="etsy-stat"><div class="etsy-stat-num">5+</div><div class="etsy-stat-lbl">Products</div></div>
+      <div class="etsy-stat"><div class="etsy-stat-num">⭐5</div><div class="etsy-stat-lbl">Quality</div></div>
+      <div class="etsy-stat"><div class="etsy-stat-num">↓</div><div class="etsy-stat-lbl">Instant DL</div></div>
+    </div>
+    <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="etsy-cta">Visit our Etsy shop →</a>
+    <p class="etsy-note">Instant download · Fully editable · Free Canva account</p>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<!-- ===== REVIEWS ===== -->
+<section class="alt" style="padding-left:0;padding-right:0;padding-top:52px;padding-bottom:52px;">
+  <div style="padding:0 20px;">
+    <div class="eyebrow">Reviews</div>
+    <h2>What clients say.</h2>
+    <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 0;font-weight:300;">Verified reviews from real clients on Upwork and beyond.</p>
+  </div>
+
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:24px 20px 4px;scroll-snap-type:x mandatory;" id="m-reviewsScroll">
+    <div style="display:flex;gap:12px;width:max-content;">
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"We recently hired Muhammad to handle our Google posts, Instagram, and Facebook — and the results have been outstanding."</p>
+        <div class="review-author">
+          <div class="reviewer-av">CO</div>
+          <div><div class="reviewer-name">City Orthopaedics &amp; Sports Medicine</div><div class="reviewer-role">New Jersey, USA · Ongoing client</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"He did a wonderful job, was SO fast and responsive. Very grateful for his help and easy-going personality."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Followed the brief perfectly and constantly checked in to ensure designs were on track. Will 100% work again."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <div class="review-card" style="margin-right:20px;">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Excellent service. Great communicator — adjusts as needed to make it perfect every single time."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll dots -->
+  <div style="display:flex;justify-content:center;gap:6px;padding-top:16px;" id="m-reviewDots">
+    <div class="scroll-dot active"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+
+<!-- ===== ABOUT ===== -->
+<section id="m-about">
+  <div class="eyebrow">About</div>
+  <h2>Muhammad Paras Khan.</h2>
+  <div style="margin-top:28px;">
+    <div class="about-card">
+      <div class="about-av"><img src="profile_paras.png" alt="Muhammad Paras Khan" width="84" height="84" loading="lazy" decoding="async" /></div>
+      <div class="about-name">Paras Khan</div>
+      <div class="about-role">Graphic Designer · Remote</div>
+      <div class="about-badges">
+        <div class="about-badge">Top Rated · Upwork</div>
+        <div class="about-badge">46+ Projects</div>
+        <div class="about-badge">6+ Years</div>
+        <div class="about-badge">US · UK · UAE</div>
+      </div>
+    </div>
+    <p class="about-text">I'm a <strong>Top Rated graphic designer and social media manager</strong> with 6+ years of experience helping businesses show up professionally online and in print. Clients across the <strong>US, UK, UAE, and Europe.</strong></p>
+    <p class="about-text" style="margin-top:12px;">I've completed <strong>46+ projects on Upwork</strong> with a 100% job success score. I don't just deliver files — I become a <strong>dedicated creative partner invested in your growth.</strong></p>
+    <p class="about-text" style="margin-top:12px;">I also run TrueMark Templates — a growing Etsy shop of <strong>ready-to-use digital template kits</strong> for healthcare, real estate, and business professionals.</p>
+    <div class="skill-tags">
+      <span class="skill-tag">Adobe Photoshop</span>
+      <span class="skill-tag">Illustrator</span>
+      <span class="skill-tag">InDesign</span>
+      <span class="skill-tag">Canva Expert</span>
+      <span class="skill-tag">Meta Scheduling</span>
+      <span class="skill-tag">GMB Management</span>
+    </div>
+    <a href="#m-contact" class="btn-green-full" style="margin-top:22px;">Let's work together →</a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="m-contact" class="alt">
+  <div class="eyebrow">Contact</div>
+  <h2>Ready to grow your brand?</h2>
+  <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 28px;font-weight:300;">Book a free 15-minute call or send a message. No commitment — just a real conversation.</p>
+  <div class="contact-card">
+    <h3>Book a free 15-minute call.</h3>
+    <p>No pitch. No pressure. Just an honest conversation about your goals.</p>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-icon"><svg class="icon" style="width:12px;height:12px;" viewBox="0 0 24 24" stroke="#22c55e"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        Monday – Friday, all time zones
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg class="icon" style="width:12px;height:12px;" viewBox="0 0 24 24" stroke="#22c55e"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        Response within 24 hours
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg class="icon" style="width:12px;height:12px;" viewBox="0 0 24 24" stroke="#22c55e"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 4.18 2 2 0 015.08 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        Zoom, Google Meet, or phone
+      </div>
+    </div>
+    <a href="https://calendar.app.google/yfSZRHDjrdNg3PZJ6" target="_blank" rel="noopener noreferrer" class="btn-green-full">Schedule a call (Google Calendar) →</a>
+  </div>
+
+  <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" placeholder="John Smith"/></div>
+  <div class="form-group"><label class="form-label">Email address</label><input class="form-input" type="email" placeholder="john@yourbusiness.com"/></div>
+  <div class="form-group"><label class="form-label">Business type</label><input class="form-input" type="text" placeholder="Clinic, Agency, Real estate, Coaching..."/></div>
+  <div class="form-group"><label class="form-label">What do you need?</label><input class="form-input" type="text" placeholder="Social media, design, GMB, templates..."/></div>
+  <button class="form-submit">Send message →</button>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta">
+  <h2>Stop Posting Randomly.<br>Start Growing <em>Consistently.</em></h2>
+  <p>Your next customer is scrolling right now. Make sure your brand stops them.</p>
+  <div class="final-cta-btns">
+    <a href="#m-contact" class="btn-green-full">Get a free quote →</a>
+    <a href="#m-packages" class="btn-ghost-full">View packages</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand-name">TrueMark<span>Templates</span></div>
+  <p class="footer-tagline">Graphic design &amp; social media management for businesses that mean business.</p>
+  <div class="footer-links-grid">
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#m-services">Services</a>
+      <a href="#m-work">Portfolio</a>
+      <a href="#m-packages">Packages</a>
+      <a href="#m-templates">Etsy Shop</a>
+      <a href="#m-about">About</a>
+      <a href="#m-contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Platforms</h4>
+      <a href="https://www.upwork.com/freelancers/parascreativestudio" target="_blank" rel="noopener">Upwork ↗</a>
+      <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener">Etsy Shop ↗</a>
+      <a href="#" target="_blank">Instagram ↗</a>
+      <a href="#" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 TrueMark Templates · Muhammad Paras Khan</div>
+    <div class="footer-social">
+      <a href="https://www.upwork.com/freelancers/parascreativestudio" target="_blank">Upwork</a>
+      <a href="https://truemarktemplates.etsy.com" target="_blank">Etsy</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+</div>
+<div class="layout-desktop">
+<div class="layout-mobile">
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="nav-hamburger" id="m-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+  <a href="#" class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 80 80" fill="none">
+      <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+      <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-name">TrueMark<span>Templates</span></span>
+  </a>
+  <a href="#m-contact" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="nav-drawer" id="m-navDrawer">
+  <a href="#m-services" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">01</span>Services</a>
+  <a href="#m-work" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">02</span>Work</a>
+  <a href="#m-packages" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">03</span>Packages</a>
+  <a href="#m-templates" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">04</span>Templates</a>
+  <a href="#m-about" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">05</span>About</a>
+  <a href="#m-contact" class="drawer-link" onclick="closeMenu()"><span class="drawer-link-num">06</span>Contact</a>
+  <div class="drawer-bottom">
+    <a href="#m-contact" class="drawer-cta" onclick="closeMenu()">Get a free quote →</a>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="m-hero">
+  <div class="hero-badge"><span class="badge-dot"></span>Top Rated · Upwork · 100% Job Success</div>
+  <h1>Designs That Build Trust &amp; <em>Drive Sales.</em></h1>
+  <p class="hero-sub">Done-for-you social media packages, graphic design, and brand visuals for businesses ready to grow. Serving clients across the US, UK, and beyond.</p>
+  <div class="hero-btns">
+    <a href="#m-packages" class="btn-green-full">See packages &amp; pricing →</a>
+    <a href="#m-work" class="btn-ghost-full">View our work</a>
+  </div>
+  <div class="trust-row">
+    <div class="avatars">
+      <div class="avatar">CO</div>
+      <div class="avatar">TT</div>
+      <div class="avatar">CL</div>
+      <div class="avatar" style="font-size:9px;">+</div>
+    </div>
+    <div class="trust-text"><strong>Trusted by 46+ businesses</strong><br>Healthcare · Real Estate · Agencies · Coaches</div>
+  </div>
+</section>
+
+<!-- ===== STATS STRIP ===== -->
+<div class="stats-strip">
+  <div class="cell"><div class="num">46<span>+</span></div><div class="lbl">Projects</div></div>
+  <div class="cell"><div class="num">6<span>+</span></div><div class="lbl">Years exp.</div></div>
+  <div class="cell"><div class="num">100<span>%</span></div><div class="lbl">Job Success</div></div>
+  <div class="cell"><div class="num">5<span>★</span></div><div class="lbl">Avg rating</div></div>
+  <div class="cell"><div class="num">US<span>+UK</span></div><div class="lbl">Primary markets</div></div>
+</div>
+
+
+
+<!-- ===== TICKER ===== -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
+    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
+    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
+    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
+    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
+    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
+  </div>
+</div>
+
+<!-- ===== PROBLEM ===== -->
+<section>
+  <div class="eyebrow">The problem</div>
+  <h2>Your business deserves better than random posting.</h2>
+  <div class="problem-box">
+    <p>Most businesses — clinics, agencies, realtors, coaches — <strong>know they need consistent social media.</strong> But between running day-to-day operations, it never gets done right.</p>
+    <p><span class="problem-highlight">Inconsistent posts. Generic graphics. No strategy. No time.</span></p>
+    <p>TrueMark Templates fixes that. We become your <strong>dedicated creative partner</strong> — handling design, captions, and scheduling — so your brand shows up professionally every week.</p>
+  </div>
+</section>
+
+<!-- ===== SERVICES (horizontal scroll) ===== -->
+<section id="m-services" style="padding-left:0;padding-right:0;padding-top:52px;padding-bottom:52px;">
+  <div style="padding:0 20px;">
+    <div class="eyebrow">What we do</div>
+    <h2>Services that grow your brand.</h2>
+    <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 24px;font-weight:300;">Full creative support for any business that needs to look professional online.</p>
+  </div>
+  <div class="services-scroll-wrap" id="m-servicesScroll" >
+    <div class="services-scroll">
+      <div class="service-card" >
+        <div class="svc-num">01</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="9" height="9" rx="2"/><rect x="13" y="3" width="9" height="9" rx="2"/><rect x="2" y="14" width="9" height="9" rx="2"/><rect x="13" y="14" width="9" height="9" rx="2"/></svg>
+        </div>
+        <h3>Social Media Packages</h3>
+        <p>Monthly done-for-you content — designed, written, and scheduled. Instagram, Facebook &amp; LinkedIn covered every week.</p>
+        <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Captions</span><span class="svc-tag">Scheduling</span></div>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">02</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <h3>Print &amp; Marketing</h3>
+        <p>Flyers, brochures, tri-folds, infographics — print-ready and web-optimized. Any format, any industry.</p>
+        <div class="svc-tags"><span class="svc-tag">Flyers</span><span class="svc-tag">Brochures</span><span class="svc-tag">Infographics</span></div>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">03</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <h3>GMB Management</h3>
+        <p>Keep your Google Business Profile active with regular posts, banners, and visuals that attract local customers.</p>
+        <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Banners</span><span class="svc-tag">Optimization</span></div>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">04</div>
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <h3>Canva Templates</h3>
+        <p>Ready-to-use, fully editable Canva template kits for any industry. Download, customize, post in minutes.</p>
+        <div class="svc-tags"><span class="svc-tag">Healthcare</span><span class="svc-tag">Real Estate</span><span class="svc-tag">Business</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- Scroll dots indicator -->
+  <div class="scroll-dots" id="m-scrollDots">
+    <div class="scroll-dot active"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ===== PORTFOLIO ===== -->
+<section id="m-work" class="alt">
+  <div class="eyebrow">Our work</div>
+  <h2>Work that wins clients.</h2>
+  <p style="color:var(--text-secondary);font-size:13px;max-width:480px;margin:10px 0 0;font-weight:300;">Real projects. Real results. For healthcare, real estate, agencies worldwide.</p>
+  <div class="portfolio-grid">
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(34,197,94,0.05);">
+        <div class="port-img-ph">🏥</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Print</div><div class="port-title">CLS Health Infographic</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(59,130,246,0.05);">
+        <div class="port-img-ph">📱</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Social</div><div class="port-title">City Ortho Monthly Posts</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(251,191,36,0.05);">
+        <div class="port-img-ph">🦷</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Print</div><div class="port-title">Tooth Truth Tri-fold</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(34,197,94,0.05);">
+        <div class="port-img-ph">🏠</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Real Estate · Canva</div><div class="port-title">Realtor Templates Pack</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(168,85,247,0.05);">
+        <div class="port-img-ph">💼</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Business · Canva</div><div class="port-title">Freelancer Client Kit</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(239,68,68,0.05);">
+        <div class="port-img-ph">📢</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Digital · Ads</div><div class="port-title">Meta Ad Creatives</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST SIGNALS ===== -->
+<section>
+  <div class="eyebrow">Why trust us</div>
+  <h2>Built on proof, not promises.</h2>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(34,197,94,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <h4>Top Rated · Upwork</h4>
+      <p>100% Job Success Score across 46+ projects</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(59,130,246,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#3b82f6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h4>Real US Clients</h4>
+      <p>NJ, Houston &amp; Reading UK</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(251,191,36,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#fbbf24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h4>Fast Delivery</h4>
+      <p>On-time across every project — no delays</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(168,85,247,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#a855f7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h4>NDA-Ready</h4>
+      <p>Your brand stays private and secure</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(34,197,94,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <h4>24hr Response</h4>
+      <p>Slack, email, or WhatsApp</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(239,68,68,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#ef4444"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h4>6+ Year Track Record</h4>
+      <p>UAE, US &amp; UK clients</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACKAGES ===== -->
+<section id="m-packages" class="alt">
+  <div class="eyebrow">Pricing</div>
+  <h2>Simple monthly packages.<br>No contracts. No surprises.</h2>
+  <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 0;font-weight:300;">Pick the plan that fits your business. Everything included — design, captions, scheduling, strategy.</p>
+  <div class="packages-grid">
+    <div class="pkg">
+      <div class="pkg-tier">Starter</div>
+      <div class="pkg-price">$600<sub>/mo</sub></div>
+      <div class="pkg-hours">~10 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>8 social media posts/mo</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Caption &amp; hashtag writing</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>GMB updates (2/mo)</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Meta scheduling</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly check-in call</div>
+      <button class="pkg-btn pkg-btn-secondary">Get started</button>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-popular">Most popular</div>
+      <div class="pkg-tier">Growth</div>
+      <div class="pkg-price">$1,200<sub>/mo</sub></div>
+      <div class="pkg-hours">~20 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>12 designed posts/mo</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>GMB weekly updates</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Bi-weekly strategy call</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly content calendar</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Story &amp; reel concepts</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly performance report</div>
+      <button class="pkg-btn pkg-btn-primary">Get started →</button>
+    </div>
+    <div class="pkg">
+      <div class="pkg-tier">Full Partner</div>
+      <div class="pkg-price">$2,000<sub>/mo</sub></div>
+      <div class="pkg-hours">~40 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>20 posts all platforms</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Full GMB management</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Weekly strategy calls</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Static ad creatives</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Competitor monitoring</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Priority 24hr response</div>
+      <button class="pkg-btn pkg-btn-secondary">Get started</button>
+    </div>
+  </div>
+  <p class="pkg-footnote">Not sure which plan fits? Book a free 15-min call.</p>
+  <div class="urgency-bar"><span class="urgency-dot"></span>Currently accepting 3 new monthly clients</div>
+</section>
+
+<!-- ===== ETSY / TEMPLATES ===== -->
+<section id="m-templates">
+  <div class="eyebrow">Etsy Shop</div>
+  <h2>Not ready for a full package?<br>Start with a <em>template kit.</em></h2>
+  <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 0;font-weight:300;">Ready-made Canva kits for healthcare, real estate, and business. Instant download, fully editable.</p>
+  <div class="etsy-kits">
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(34,197,94,0.1);">🦴</div>
+      <div><div class="kit-name">Orthopaedic Social Kit</div><div class="kit-desc">30 done-for-you posts</div></div>
+      <div class="kit-price">$14.99</div>
+    </div>
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(59,130,246,0.1);">🦷</div>
+      <div><div class="kit-name">Dental Social Kit</div><div class="kit-desc">30 posts for dental practices</div></div>
+      <div class="kit-price">$14.99</div>
+    </div>
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(168,85,247,0.1);">🏠</div>
+      <div><div class="kit-name">Realtor Social Kit</div><div class="kit-desc">30 posts for real estate agents</div></div>
+      <div class="kit-price">$14.99</div>
+    </div>
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(251,191,36,0.1);">💼</div>
+      <div><div class="kit-name">Freelancer Client Kit</div><div class="kit-desc">Invoice, proposal, onboarding</div></div>
+      <div class="kit-price">$16.99</div>
+    </div>
+    <div class="etsy-kit-row">
+      <div class="kit-icon" style="background:rgba(239,68,68,0.1);">✉️</div>
+      <div><div class="kit-name">Email Signature Bundle</div><div class="kit-desc">13 styles for any professional</div></div>
+      <div class="kit-price">$9.99</div>
+    </div>
+  </div>
+  <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="btn-green-full" style="margin-bottom:4px;">Browse all templates on Etsy →</a>
+  <div class="etsy-box">
+    <div class="etsy-shop-logo">
+      <svg width="26" height="26" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+        <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h3>TrueMark Templates</h3>
+    <p>A growing library of professionally designed digital template kits. Each product built for a specific audience.</p>
+    <div class="etsy-stats">
+      <div class="etsy-stat"><div class="etsy-stat-num">5+</div><div class="etsy-stat-lbl">Products</div></div>
+      <div class="etsy-stat"><div class="etsy-stat-num">⭐5</div><div class="etsy-stat-lbl">Quality</div></div>
+      <div class="etsy-stat"><div class="etsy-stat-num">↓</div><div class="etsy-stat-lbl">Instant DL</div></div>
+    </div>
+    <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="etsy-cta">Visit our Etsy shop →</a>
+    <p class="etsy-note">Instant download · Fully editable · Free Canva account</p>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<!-- ===== REVIEWS ===== -->
+<section class="alt" style="padding-left:0;padding-right:0;padding-top:52px;padding-bottom:52px;">
+  <div style="padding:0 20px;">
+    <div class="eyebrow">Reviews</div>
+    <h2>What clients say.</h2>
+    <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 0;font-weight:300;">Verified reviews from real clients on Upwork and beyond.</p>
+  </div>
+
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:24px 20px 4px;scroll-snap-type:x mandatory;" id="m-reviewsScroll">
+    <div style="display:flex;gap:12px;width:max-content;">
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"We recently hired Muhammad to handle our Google posts, Instagram, and Facebook — and the results have been outstanding."</p>
+        <div class="review-author">
+          <div class="reviewer-av">CO</div>
+          <div><div class="reviewer-name">City Orthopaedics &amp; Sports Medicine</div><div class="reviewer-role">New Jersey, USA · Ongoing client</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"He did a wonderful job, was SO fast and responsive. Very grateful for his help and easy-going personality."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Followed the brief perfectly and constantly checked in to ensure designs were on track. Will 100% work again."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <div class="review-card" style="margin-right:20px;">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Excellent service. Great communicator — adjusts as needed to make it perfect every single time."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll dots -->
+  <div style="display:flex;justify-content:center;gap:6px;padding-top:16px;" id="m-reviewDots">
+    <div class="scroll-dot active"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+
+<!-- ===== ABOUT ===== -->
+<section id="m-about">
+  <div class="eyebrow">About</div>
+  <h2>Muhammad Paras Khan.</h2>
+  <div style="margin-top:28px;">
+    <div class="about-card">
+      <div class="about-av"><img src="profile_paras.png" alt="Muhammad Paras Khan" width="84" height="84" loading="lazy" decoding="async" /></div>
+      <div class="about-name">Paras Khan</div>
+      <div class="about-role">Graphic Designer · Remote</div>
+      <div class="about-badges">
+        <div class="about-badge">Top Rated · Upwork</div>
+        <div class="about-badge">46+ Projects</div>
+        <div class="about-badge">6+ Years</div>
+        <div class="about-badge">US · UK · UAE</div>
+      </div>
+    </div>
+    <p class="about-text">I'm a <strong>Top Rated graphic designer and social media manager</strong> with 6+ years of experience helping businesses show up professionally online and in print. Clients across the <strong>US, UK, UAE, and Europe.</strong></p>
+    <p class="about-text" style="margin-top:12px;">I've completed <strong>46+ projects on Upwork</strong> with a 100% job success score. I don't just deliver files — I become a <strong>dedicated creative partner invested in your growth.</strong></p>
+    <p class="about-text" style="margin-top:12px;">I also run TrueMark Templates — a growing Etsy shop of <strong>ready-to-use digital template kits</strong> for healthcare, real estate, and business professionals.</p>
+    <div class="skill-tags">
+      <span class="skill-tag">Adobe Photoshop</span>
+      <span class="skill-tag">Illustrator</span>
+      <span class="skill-tag">InDesign</span>
+      <span class="skill-tag">Canva Expert</span>
+      <span class="skill-tag">Meta Scheduling</span>
+      <span class="skill-tag">GMB Management</span>
+    </div>
+    <a href="#m-contact" class="btn-green-full" style="margin-top:22px;">Let's work together →</a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="m-contact" class="alt">
+  <div class="eyebrow">Contact</div>
+  <h2>Ready to grow your brand?</h2>
+  <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 28px;font-weight:300;">Book a free 15-minute call or send a message. No commitment — just a real conversation.</p>
+  <div class="contact-card">
+    <h3>Book a free 15-minute call.</h3>
+    <p>No pitch. No pressure. Just an honest conversation about your goals.</p>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-icon"><svg class="icon" style="width:12px;height:12px;" viewBox="0 0 24 24" stroke="#22c55e"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        Monday – Friday, all time zones
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg class="icon" style="width:12px;height:12px;" viewBox="0 0 24 24" stroke="#22c55e"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        Response within 24 hours
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg class="icon" style="width:12px;height:12px;" viewBox="0 0 24 24" stroke="#22c55e"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 4.18 2 2 0 015.08 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        Zoom, Google Meet, or phone
+      </div>
+    </div>
+    <a href="https://calendar.app.google/yfSZRHDjrdNg3PZJ6" target="_blank" rel="noopener noreferrer" class="btn-green-full">Schedule a call (Google Calendar) →</a>
+  </div>
+
+  <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" placeholder="John Smith"/></div>
+  <div class="form-group"><label class="form-label">Email address</label><input class="form-input" type="email" placeholder="john@yourbusiness.com"/></div>
+  <div class="form-group"><label class="form-label">Business type</label><input class="form-input" type="text" placeholder="Clinic, Agency, Real estate, Coaching..."/></div>
+  <div class="form-group"><label class="form-label">What do you need?</label><input class="form-input" type="text" placeholder="Social media, design, GMB, templates..."/></div>
+  <button class="form-submit">Send message →</button>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta">
+  <h2>Stop Posting Randomly.<br>Start Growing <em>Consistently.</em></h2>
+  <p>Your next customer is scrolling right now. Make sure your brand stops them.</p>
+  <div class="final-cta-btns">
+    <a href="#m-contact" class="btn-green-full">Get a free quote →</a>
+    <a href="#m-packages" class="btn-ghost-full">View packages</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand-name">TrueMark<span>Templates</span></div>
+  <p class="footer-tagline">Graphic design &amp; social media management for businesses that mean business.</p>
+  <div class="footer-links-grid">
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#m-services">Services</a>
+      <a href="#m-work">Portfolio</a>
+      <a href="#m-packages">Packages</a>
+      <a href="#m-templates">Etsy Shop</a>
+      <a href="#m-about">About</a>
+      <a href="#m-contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Platforms</h4>
+      <a href="https://www.upwork.com/freelancers/parascreativestudio" target="_blank" rel="noopener">Upwork ↗</a>
+      <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener">Etsy Shop ↗</a>
+      <a href="#" target="_blank">Instagram ↗</a>
+      <a href="#" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 TrueMark Templates · Muhammad Paras Khan</div>
+    <div class="footer-social">
+      <a href="https://www.upwork.com/freelancers/parascreativestudio" target="_blank">Upwork</a>
+      <a href="https://truemarktemplates.etsy.com" target="_blank">Etsy</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+</div>
+<div class="layout-desktop">
+<!-- ============ NAVIGATION ============ -->
+<nav>
+  <a href="#" class="nav-brand">
+    <svg width="34" height="34" viewBox="0 0 80 80" fill="none">
+      <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+      <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-name">TrueMark<span>Templates</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#templates">Templates</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn btn-green" style="padding:10px 22px;font-size:13px;">Get a free quote →</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span>Top Rated · Upwork · 100% Job Success</div>
+      <h1>Designs That Build <br>Trust &amp; <em>Drive Sales.</em></h1>
+      <p class="hero-sub">Done-for-you social media packages, graphic design, and brand visuals for businesses ready to grow. Serving clients across the US, UK, and beyond.</p>
+      <div class="hero-btns">
+        <a href="#packages" class="btn btn-green">See packages &amp; pricing →</a>
+        <a href="#work" class="btn btn-ghost">View our work</a>
+      </div>
+      <div class="trust-row">
+        <div class="avatars">
+          <div class="avatar"><img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyb3NufGVufDB8MXwwfHx8Mg%3D%3D" alt="Client" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div>
+          <div class="avatar"><img src="https://images.unsplash.com/photo-1609543563735-d7cfaf71addb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGVyb3NufGVufDB8MXwwfHx8Mg%3D%3D" alt="Client" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div>
+          <div class="avatar"><img src="https://images.unsplash.com/photo-1721420585902-14814b3bdc68?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHVrcmFpbiUyMGdpcmx8ZW58MHwxfDB8fHwy" alt="Client" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div>
+          <div class="avatar" style="font-size:10px;">+</div>
+        </div>
+        <div class="trust-text"><strong>Trusted by 46+ businesses</strong><br>Healthcare · Real Estate · Agencies · Coaches</div>
+      </div>
+    </div>
+    <div class="hero-video">
+      <iframe 
+        width="100%" 
+        height="450" 
+        src="https://www.youtube-nocookie.com/embed/h62rCLhDxrY?autoplay=1&mute=0&loop=1&playlist=h62rCLhDxrY&controls=0&showinfo=0&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3&cc_load_policy=0&autohide=1&fs=0&playsinline=1&start=0" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        sandbox="allow-same-origin allow-scripts allow-popups">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<div class="stats-strip">
+  <div class="cell"><div class="num">46<span>+</span></div><div class="lbl">Projects completed</div></div>
+  <div class="cell"><div class="num">6<span>+</span></div><div class="lbl">Years experience</div></div>
+  <div class="cell"><div class="num">100<span>%</span></div><div class="lbl">Job success · Upwork</div></div>
+  <div class="cell"><div class="num">5<span>★</span></div><div class="lbl">Average rating</div></div>
+  <div class="cell"><div class="num">US<span>+UK</span></div><div class="lbl">Primary markets</div></div>
+</div>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
+    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
+    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
+    <!-- Duplicate for infinite scroll -->
+    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
+    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
+    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
+    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
+    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section class="problem-section">
+  <!-- Left Side -->
+  <div class="problem-left">
+    <div class="eyebrow">The problem</div>
+    <h2>Your business deserves better<br>than random posting.</h2>
+  </div>
+
+  <!-- Right Side -->
+  <div class="problem-box">
+    <p>
+      Most businesses — clinics, agencies, realtors, coaches —
+      <strong>know they need consistent social media.</strong>
+      But between running day-to-day operations, it never gets done right.
+    </p>
+
+    <p>
+      <span class="problem-highlight">
+        Inconsistent posts. Generic graphics. No strategy. No time.
+      </span>
+    </p>
+
+    <p>
+      TrueMark Templates fixes that. We become your
+      <strong>dedicated creative partner</strong>
+      — handling design, captions, and scheduling — so your brand shows up
+      professionally every week.
+    </p>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="alt">
+  <div class="eyebrow">What we do</div>
+  <h2>Services that grow your brand.</h2>
+  <p style="color:var(--text-secondary);font-size:14px;max-width:480px;margin:12px 0 44px;font-weight:300;">Full creative support for any business that needs to look professional and stay consistent online.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><rect x="2" y="3" width="9" height="9" rx="2"/><rect x="13" y="3" width="9" height="9" rx="2"/><rect x="2" y="14" width="9" height="9" rx="2"/><rect x="13" y="14" width="9" height="9" rx="2"/></svg>
+      </div>
+      <h3>Social media packages</h3>
+      <p>Monthly done-for-you content — designed, written, and scheduled. Instagram, Facebook &amp; LinkedIn covered every week.</p>
+      <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Captions</span><span class="svc-tag">Scheduling</span></div>
+    </div>
+    <div class="service-card">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      </div>
+      <h3>Print &amp; marketing</h3>
+      <p>Flyers, brochures, tri-folds, infographics — print-ready and web-optimized. Any format, any industry.</p>
+      <div class="svc-tags"><span class="svc-tag">Flyers</span><span class="svc-tag">Brochures</span><span class="svc-tag">Infographics</span></div>
+    </div>
+    <div class="service-card">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+      <h3>GMB management</h3>
+      <p>Keep your Google Business Profile active with regular posts, banners, and visuals that attract local customers.</p>
+      <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Banners</span><span class="svc-tag">Optimization</span></div>
+    </div>
+    <div class="service-card">
+      <div class="svc-num">04</div>
+      <div class="svc-icon">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+      </div>
+      <h3>Canva templates</h3>
+      <p>Ready-to-use, fully editable Canva template kits for any industry. Download, customize, post in minutes.</p>
+      <div class="svc-tags"><span class="svc-tag">Healthcare</span><span class="svc-tag">Real Estate</span><span class="svc-tag">Business</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section id="work">
+  <div class="eyebrow">Our work</div>
+  <h2>Work that wins clients.</h2>
+  <p style="color:var(--text-secondary);font-size:14px;max-width:480px;margin:12px 0 44px;font-weight:300;">Real projects. Real results. For healthcare, real estate, agencies, and service businesses worldwide.</p>
+  <!-- DEVELOPER NOTE: Replace .port-img with <img> tags from actual portfolio screenshots -->
+  <div class="portfolio-grid">
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(34,197,94,0.05);">
+        <div class="port-img-ph">🏥</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Print</div><div class="port-title">CLS Health Infographic</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(59,130,246,0.05);">
+        <div class="port-img-ph">📱</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Social</div><div class="port-title">City Ortho Monthly Posts</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(251,191,36,0.05);">
+        <div class="port-img-ph">🦷</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Healthcare · Print</div><div class="port-title">Tooth Truth Tri-fold</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(34,197,94,0.05);">
+        <div class="port-img-ph">🏠</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Real Estate · Canva</div><div class="port-title">Realtor Templates Pack</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(168,85,247,0.05);">
+        <div class="port-img-ph">💼</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Business · Canva</div><div class="port-title">Freelancer Client Kit</div></div>
+    </div>
+    <div class="port-card">
+      <div class="port-img" style="background:rgba(239,68,68,0.05);">
+        <div class="port-img-ph">📢</div>
+        <div class="port-img-label">REPLACE WITH SCREENSHOT</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Digital · Ads</div><div class="port-title">Meta Ad Creatives</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST SIGNALS ============ -->
+<section class="alt">
+  <div class="eyebrow">Why trust us</div>
+  <h2>Built on proof, not promises.</h2>
+  <p style="color:var(--text-secondary);font-size:14px;max-width:480px;margin:12px 0 44px;font-weight:300;">Every claim is backed by real client work, verified reviews, and 6+ years of consistent delivery.</p>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(34,197,94,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <h4>Top Rated · Upwork</h4>
+      <p>100% Job Success Score across 46+ completed projects</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(59,130,246,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#3b82f6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h4>Real US clients</h4>
+      <p>Active clients in New Jersey, Houston &amp; Reading UK</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(251,191,36,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#fbbf24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h4>Fast delivery</h4>
+      <p>On-time across every project — no delays, ever</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(168,85,247,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#a855f7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h4>NDA-ready</h4>
+      <p>Signed NDAs with clients — your brand stays private</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(34,197,94,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <h4>24hr response</h4>
+      <p>Always responsive via Slack, email, or WhatsApp</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon-wrap" style="background:rgba(239,68,68,0.1);">
+        <svg class="icon" viewBox="0 0 24 24" stroke="#ef4444"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h4>6+ year track record</h4>
+      <p>UAE, US, UK clients across every industry</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section id="packages">
+  <div class="eyebrow">Pricing</div>
+  <h2>Simple monthly packages.<br>No contracts. No surprises.</h2>
+  <p style="color:var(--text-secondary);font-size:14px;max-width:520px;margin:12px 0 44px;font-weight:300;">Pick the plan that fits your business. Everything included — design, captions, scheduling, strategy. For healthcare, real estate, agencies, coaches, and every service business.</p>
+  <div class="packages-grid">
+    <div class="pkg">
+      <div class="pkg-tier">Starter</div>
+      <div class="pkg-price">$600<sub>/mo</sub></div>
+      <div class="pkg-hours">~10 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>8 social media posts/mo</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Caption &amp; hashtag writing</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>GMB updates (2/mo)</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Meta scheduling</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly check-in call</div>
+      <button class="pkg-btn pkg-btn-secondary">Get started</button>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-popular">Most popular</div>
+      <div class="pkg-tier">Growth</div>
+      <div class="pkg-price">$1,200<sub>/mo</sub></div>
+      <div class="pkg-hours">~20 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>12 designed posts/mo</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>GMB weekly updates</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Bi-weekly strategy call</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly content calendar</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Story &amp; reel concepts</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Monthly performance report</div>
+      <button class="pkg-btn pkg-btn-primary">Get started →</button>
+    </div>
+    <div class="pkg">
+      <div class="pkg-tier">Full Partner</div>
+      <div class="pkg-price">$2,000<sub>/mo</sub></div>
+      <div class="pkg-hours">~40 hours per week</div>
+      <hr>
+      <div class="pkg-feature"><span class="feat-check">✓</span>20 posts all platforms</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Full GMB management</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Weekly strategy calls</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Static ad creatives</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Competitor monitoring</div>
+      <div class="pkg-feature"><span class="feat-check">✓</span>Priority 24hr response</div>
+      <button class="pkg-btn pkg-btn-secondary">Get started</button>
+    </div>
+  </div>
+  <p class="pkg-footnote">Not sure which plan fits? Book a free 15-min call — I'll recommend the right one for you.</p>
+  <div class="urgency-bar"><span class="urgency-dot"></span>Currently accepting 3 new monthly clients — spots filling fast</div>
+</section>
+
+<!-- ============ ETSY / TEMPLATES SECTION ============ -->
+<section id="templates" class="etsy-section alt">
+  <div class="eyebrow">Etsy shop</div>
+  <div class="etsy-inner">
+    <div class="etsy-left">
+      <div class="etsy-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Shop TrueMark Templates on Etsy
+      </div>
+      <h2>Not ready for a full package?<br>Start with a <em>template kit.</em></h2>
+      <p>Browse our growing collection of ready-made Canva template kits — professionally designed for healthcare, real estate, and business professionals. Instant download, fully editable, post-ready in minutes. No design skills needed.</p>
+      <div class="etsy-kits">
+        <div class="etsy-kit-row">
+          <div class="kit-icon" style="background:rgba(34,197,94,0.1);">🦴</div>
+          <div><div class="kit-name">Orthopaedic Social Kit</div><div class="kit-desc">30 done-for-you posts for orthopaedic clinics</div></div>
+          <div class="kit-price">$14.99</div>
+        </div>
+        <div class="etsy-kit-row">
+          <div class="kit-icon" style="background:rgba(59,130,246,0.1);">🦷</div>
+          <div><div class="kit-name">Dental Social Kit</div><div class="kit-desc">30 posts for dental practices</div></div>
+          <div class="kit-price">$14.99</div>
+        </div>
+        <div class="etsy-kit-row">
+          <div class="kit-icon" style="background:rgba(168,85,247,0.1);">🏠</div>
+          <div><div class="kit-name">Realtor Social Kit</div><div class="kit-desc">30 posts for real estate agents</div></div>
+          <div class="kit-price">$14.99</div>
+        </div>
+        <div class="etsy-kit-row">
+          <div class="kit-icon" style="background:rgba(251,191,36,0.1);">💼</div>
+          <div><div class="kit-name">Freelancer Client Kit</div><div class="kit-desc">Invoice, proposal, onboarding &amp; more</div></div>
+          <div class="kit-price">$16.99</div>
+        </div>
+        <div class="etsy-kit-row">
+          <div class="kit-icon" style="background:rgba(239,68,68,0.1);">✉️</div>
+          <div><div class="kit-name">Email Signature Bundle</div><div class="kit-desc">13 styles for any professional</div></div>
+          <div class="kit-price">$9.99</div>
+        </div>
+      </div>
+      <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="btn btn-green">Browse all templates on Etsy →</a>
+    </div>
+    <div class="etsy-right">
+      <div class="etsy-shop-logo">
+        <svg width="30" height="30" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+          <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>TrueMark Templates</h3>
+      <p>Our Etsy shop is home to a growing library of professionally designed digital template kits. Each product is built for a specific audience — so you get exactly what you need.</p>
+      <div class="etsy-stats">
+        <div class="etsy-stat"><div class="etsy-stat-num">5+</div><div class="etsy-stat-lbl">Products live</div></div>
+        <div class="etsy-stat"><div class="etsy-stat-num">⭐ 5</div><div class="etsy-stat-lbl">Star quality</div></div>
+        <div class="etsy-stat"><div class="etsy-stat-num">↓</div><div class="etsy-stat-lbl">Instant DL</div></div>
+      </div>
+      <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="etsy-cta">Visit our Etsy shop →</a>
+      <p class="etsy-note">Instant download · Fully editable · Free Canva account</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<!-- ===== REVIEWS ===== -->
+<section>
+  <div class="eyebrow">Reviews</div>
+  <h2>What clients say.</h2>
+  <p style="color:var(--text-secondary);font-size:14px;max-width:480px;margin:12px 0 36px;font-weight:300;">Verified reviews from real clients on Upwork and beyond.</p>
+
+  <div class="reviews-slider-wrap">
+    <div class="reviews-track" id="reviewsTrack">
+
+      <!-- Original cards -->
+      <div class="review-slide">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"We recently hired Muhammad to handle our Google posts, Instagram, and Facebook — and the results have been outstanding."</p>
+        <div class="review-author">
+          <div><div class="reviewer-name">City Orthopaedics &amp; Sports Medicine</div><div class="reviewer-role">New Jersey, USA · Healthcare · Ongoing client</div></div>
+        </div>
+      </div>
+
+      <div class="review-slide">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"He did a wonderful job, was SO fast and responsive. Very grateful for his help and easy-going personality."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <div class="review-slide">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Followed the brief perfectly and constantly checked in to ensure designs were on track. Will 100% work again."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <div class="review-slide">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Excellent service. Great communicator — adjusts as needed to make it perfect every single time."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <!-- Duplicates for infinite loop -->
+      <div class="review-slide">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"We recently hired Muhammad to handle our Google posts, Instagram, and Facebook — and the results have been outstanding."</p>
+        <div class="review-author">
+          <div class="reviewer-av">CO</div>
+          <div><div class="reviewer-name">City Orthopaedics &amp; Sports Medicine</div><div class="reviewer-role">New Jersey, USA · Healthcare · Ongoing client</div></div>
+        </div>
+      </div>
+
+      <div class="review-slide">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"He did a wonderful job, was SO fast and responsive. Very grateful for his help and easy-going personality."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <div class="review-slide">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Followed the brief perfectly and constantly checked in to ensure designs were on track. Will 100% work again."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+      <div class="review-slide">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Excellent service. Great communicator — adjusts as needed to make it perfect every single time."</p>
+        <div class="review-author">
+          <div class="reviewer-av">U</div>
+          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="alt">
+  <div class="eyebrow">About</div>
+  <h2>Muhammad Paras Khan.</h2>
+  <div class="about-grid" style="margin-top:36px;">
+    <div class="about-card">
+      <div class="about-av"><img src="profile_paras.png" alt="Muhammad Paras Khan" width="84" height="84" loading="lazy" decoding="async" /></div>
+      <div class="about-name">Paras Khan</div>
+      <div class="about-role">Graphic Designer · Remote</div>
+      <div class="about-badges">
+        <div class="about-badge">Top Rated · Upwork</div>
+        <div class="about-badge">46+ Projects</div>
+        <div class="about-badge">6+ Years Exp.</div>
+        <div class="about-badge">US · UK · UAE</div>
+      </div>
+    </div>
+    <div>
+      <p class="about-text">I'm a <strong>Top Rated graphic designer and social media manager</strong> with 6+ years of experience helping businesses show up professionally online and in print. I work with clients across the <strong>US, UK, UAE, and Europe</strong> — from healthcare clinics to real estate agencies to creative studios.</p>
+      <p class="about-text" style="margin-top:16px;">I've completed <strong>46+ projects on Upwork</strong> with a 100% job success score. I don't just deliver files — I become a <strong>dedicated creative partner invested in your growth.</strong></p>
+      <p class="about-text" style="margin-top:16px;">I also run TrueMark Templates — a growing Etsy shop of <strong>ready-to-use digital template kits</strong> for healthcare, real estate, and business professionals.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Adobe Photoshop</span>
+        <span class="skill-tag">Illustrator</span>
+        <span class="skill-tag">InDesign</span>
+        <span class="skill-tag">Canva Expert</span>
+        <span class="skill-tag">Meta Scheduling</span>
+        <span class="skill-tag">GMB Management</span>
+      </div>
+      <a href="#contact" class="btn btn-green" style="margin-top:24px;font-size:13px;">Let's work together →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="eyebrow">Contact</div>
+  <h2>Ready to grow your brand?</h2>
+  <p style="color:var(--text-secondary);font-size:14px;max-width:480px;margin:12px 0 44px;font-weight:300;">Book a free 15-minute call or send a message. No commitment — just a real conversation about what you need.</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Book a free 15-minute call.</h3>
+      <p>No pitch. No pressure. Just an honest conversation about your goals and how we can help.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon"><svg class="icon" style="width:13px;height:13px;" viewBox="0 0 24 24" stroke="#22c55e"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          Monday – Friday, all time zones
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg class="icon" style="width:13px;height:13px;" viewBox="0 0 24 24" stroke="#22c55e"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          Response within 24 hours
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg class="icon" style="width:13px;height:13px;" viewBox="0 0 24 24" stroke="#22c55e"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 4.18 2 2 0 015.08 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          Zoom, Google Meet, or phone
+        </div>
+      </div>
+      <a href="https://calendar.app.google/yfSZRHDjrdNg3PZJ6" target="_blank" rel="noopener noreferrer" class="btn btn-green" style="width:100%;justify-content:center;">Schedule a call (Google Calendar) →</a>
+    </div>
+    <div>
+      <form action="https://formspree.io/f/mzdywwvl" method="POST" id="contactForm">
+        <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" name="name" placeholder="John Smith"/></div>
+        <div class="form-group"><label class="form-label">Email address</label><input class="form-input" type="email" name="email" placeholder="john@yourbusiness.com"/></div>
+        <div class="form-group"><label class="form-label">Business type</label><input class="form-input" type="text" name="business_type" placeholder="e.g. Clinic, Agency, Real estate, Coaching"/></div>
+        <div class="form-group"><label class="form-label">What do you need?</label><input class="form-input" type="text" name="needs" placeholder="Social media package, design, GMB, templates..."/></div>
+        <button class="form-submit" type="submit">Send message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <h2>Stop Posting Randomly.<br>Start Growing <em>Consistently.</em></h2>
+  <p>Your next customer is scrolling right now. Make sure your brand stops them.</p>
+  <div class="final-cta-btns">
+    <a href="#contact" class="btn btn-green" style="font-size:14px;padding:16px 44px;">Get a free quote →</a>
+    <a href="#packages" class="btn btn-blue" style="font-size:14px;padding:16px 36px;">View packages</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">TrueMark<span>Templates</span></div>
+      <p class="footer-tagline">Graphic design &amp; social media management for businesses that mean business.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#services">Services</a>
+      <a href="#work">Portfolio</a>
+      <a href="#packages">Packages</a>
+      <a href="#templates">Etsy Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Platforms</h4>
+      <!-- DEVELOPER NOTE: Update these links with real URLs -->
+      <a href="https://www.upwork.com/freelancers/parascreativestudio" target="_blank" rel="noopener">Upwork ↗</a>
+      <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener">Etsy Shop ↗</a>
+      <a href="#" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Social media packages</a>
+      <a href="#services">Print &amp; marketing</a>
+      <a href="#services">GMB management</a>
+      <a href="#templates">Canva templates</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 TrueMark Templates · Muhammad Paras Khan · All rights reserved.</div>
+    <div class="footer-social">
+      <a href="https://www.upwork.com/freelancers/parascreativestudio" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener">Etsy</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Clear previous errors
+  const form = this;
+  const inputs = form.querySelectorAll('.form-input');
+  const errorMessages = form.querySelectorAll('.form-error-message');
+  
+  inputs.forEach(input => input.classList.remove('error'));
+  errorMessages.forEach(msg => msg.remove());
+  
+  // Validation function
+  function validateField(input, fieldName, validationType = 'required') {
+    const value = input.value.trim();
+    let errorMessage = '';
+    
+    if (validationType === 'required' && !value) {
+      errorMessage = `${fieldName} is required`;
+    } else if (validationType === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        errorMessage = 'Please enter a valid email address';
+      }
+    } else if (validationType === 'minlength' && value.length < 2) {
+      errorMessage = `${fieldName} must be at least 2 characters`;
+    }
+    
+    if (errorMessage) {
+      input.classList.add('error');
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'form-error-message';
+      errorDiv.textContent = errorMessage;
+      input.parentNode.appendChild(errorDiv);
+      return false;
+    }
+    
+    return true;
+  }
+  
+  // Validate all fields
+  const nameInput = form.querySelector('input[name="name"]');
+  const emailInput = form.querySelector('input[name="email"]');
+  const businessInput = form.querySelector('input[name="business_type"]');
+  const needsInput = form.querySelector('input[name="needs"]');
+  
+  const isNameValid = validateField(nameInput, 'Name', 'minlength');
+  const isEmailValid = validateField(emailInput, 'Email', 'email');
+  const isBusinessValid = validateField(businessInput, 'Business type', 'required');
+  const isNeedsValid = validateField(needsInput, 'What you need', 'required');
+  
+  // If all fields are valid, submit the form
+  if (isNameValid && isEmailValid && isBusinessValid && isNeedsValid) {
+    // Show thank you popup
+    const popup = document.getElementById('thankYouPopup');
+    popup.style.display = 'flex';
+    
+    // Submit the form to Formspree
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Form submitted successfully:', data);
+    })
+    .catch(error => {
+      console.error('Form submission error:', error);
+      // Fallback to normal form submission if fetch fails
+      form.submit();
+    });
+    
+    // Hide popup after 5 seconds
+    setTimeout(function() {
+      popup.style.display = 'none';
+    }, 5000);
+    
+    // Reset form
+    form.reset();
+  } else {
+    // Scroll to first error
+    const firstError = form.querySelector('.form-input.error');
+    if (firstError) {
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstError.focus();
+    }
+  }
+});
+
+// Remove error styling on input
+document.querySelectorAll('#contactForm .form-input').forEach(input => {
+  input.addEventListener('input', function() {
+    this.classList.remove('error');
+    const errorMessage = this.parentNode.querySelector('.form-error-message');
+    if (errorMessage) {
+      errorMessage.remove();
+    }
+  });
+});
+
+// Add click functionality to all "Get started" buttons
+document.querySelectorAll('.layout-desktop .pkg-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    // Smooth scroll to contact section
+    document.querySelector('.layout-desktop #contact').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+});
+
+</script>
+<script>
+
+// ===== HAMBURGER MENU =====
+function toggleMenu() {
+  const hamburger = document.getElementById('m-hamburger');
+  const drawer = document.getElementById('m-navDrawer');
+  hamburger.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeMenu() {
+  document.getElementById('m-hamburger').classList.remove('open');
+  document.getElementById('m-navDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close drawer on outside click
+document.getElementById('m-navDrawer').addEventListener('click', function(e) {
+  if (e.target === this) closeMenu();
+});
+
+// ===== SERVICES SCROLL DOTS =====
+const servicesScroll = document.getElementById('m-servicesScroll');
+const dots = document.getElementById('m-scrollDots')?.querySelectorAll('.scroll-dot') || [];
+const cards = servicesScroll.querySelectorAll('.service-card');
+
+servicesScroll.addEventListener('scroll', () => {
+  const scrollLeft = servicesScroll.scrollLeft;
+  const cardWidth = servicesScroll.scrollWidth / cards.length;
+  const activeIndex = Math.round(scrollLeft / cardWidth);
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === activeIndex);
+  });
+});
+
+</script>
+
+<script>
+
+const reviewsScroll = document.getElementById('m-reviewsScroll');
+const reviewDots = document.querySelectorAll('#m-reviewDots .scroll-dot');
+const reviewCards = reviewsScroll.querySelectorAll('.review-card');
+
+reviewsScroll.addEventListener('scroll', () => {
+  const cardWidth = reviewsScroll.scrollWidth / reviewCards.length;
+  const activeIndex = Math.round(reviewsScroll.scrollLeft / cardWidth);
+  reviewDots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+});
+
+
+</script>
+<script>
+
+// ===== HAMBURGER MENU =====
+function toggleMenu() {
+  const hamburger = document.getElementById('m-hamburger');
+  const drawer = document.getElementById('m-navDrawer');
+  hamburger.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeMenu() {
+  document.getElementById('m-hamburger').classList.remove('open');
+  document.getElementById('m-navDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close drawer on outside click
+document.getElementById('m-navDrawer').addEventListener('click', function(e) {
+  if (e.target === this) closeMenu();
+});
+
+// ===== SERVICES SCROLL DOTS =====
+const servicesScroll = document.getElementById('m-servicesScroll');
+const dots = document.getElementById('m-scrollDots')?.querySelectorAll('.scroll-dot') || [];
+const cards = servicesScroll.querySelectorAll('.service-card');
+
+servicesScroll.addEventListener('scroll', () => {
+  const scrollLeft = servicesScroll.scrollLeft;
+  const cardWidth = servicesScroll.scrollWidth / cards.length;
+  const activeIndex = Math.round(scrollLeft / cardWidth);
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === activeIndex);
+  });
+});
+
+</script>
+
+<script>
+
+const reviewsScroll = document.getElementById('m-reviewsScroll');
+const reviewDots = document.querySelectorAll('#m-reviewDots .scroll-dot');
+const reviewCards = reviewsScroll.querySelectorAll('.review-card');
+
+reviewsScroll.addEventListener('scroll', () => {
+  const cardWidth = reviewsScroll.scrollWidth / reviewCards.length;
+  const activeIndex = Math.round(reviewsScroll.scrollLeft / cardWidth);
+  reviewDots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+});
+
+</script>
+</body>
+</html>
