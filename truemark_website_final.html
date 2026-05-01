@@ -142,11 +142,23 @@ nav {
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 .nav-brand {
-  display: flex; align-items: center; gap: 8px; text-decoration: none;
-  position: absolute; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-shrink: 0;
 }
-.nav-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: #fff; white-space: nowrap; }
-.nav-name span { color: var(--green); }
+/* PNG has lots of empty padding — use explicit size so the mark stays readable */
+.nav-brand .brand-logo {
+  height: 60px;
+  width: auto;
+  max-width: min(280px, 72vw);
+  min-height: 60px;
+  display: block;
+  object-fit: contain;
+}
 
 .nav-cta {
   background: var(--green); color: #000; border: none;
@@ -294,6 +306,24 @@ nav {
 .trust-text { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
 .trust-text strong { color: rgba(255,255,255,0.65); font-weight: 500; }
 
+.hero-visual--mobile {
+  margin-top: 28px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(7,11,20,0.75);
+}
+.hero-visual--mobile img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+#m-hero .hero-visual img {
+  transform: none !important;
+  will-change: auto;
+}
+
 /* ===== STATS STRIP (2x2 grid) ===== */
 .stats-strip {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -347,29 +377,65 @@ nav {
   width: max-content;
 }
 
-.service-card {
+#m-services .service-card {
   width: 78vw; max-width: 300px;
   flex-shrink: 0;
   scroll-snap-align: start;
   background: rgba(255,255,255,0.025);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 26px 22px;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  height: clamp(300px, 92vw, 280px);
+  min-height: 300px;
+  overflow: hidden;
   transition: border-color 0.2s;
 }
-.service-card:last-child { margin-right: 20px; }
+#m-services .service-card:last-child { margin-right: 20px; }
 
-.svc-num { font-size: 12px; color: var(--green); letter-spacing: 2px; font-weight: 600; margin-bottom: 12px; }
-.svc-icon {
-  width: 44px; height: 44px; border-radius: 10px;
-  background: rgba(34,197,94,0.07); border: 1px solid var(--green-border);
-  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+#m-services .svc-icon {
+  grid-row: 1;
+  min-height: 0;
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: #070b14;
+  position: relative;
+  overflow: hidden;
 }
-.svc-icon svg { width: 20px; height: 20px; }
-.service-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-.service-card p { font-size: 12px; color: var(--text-muted); line-height: 1.8; margin-bottom: 14px; }
-.svc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
-.svc-tag {
+#m-services .svc-icon img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+#m-services .svc-icon,
+#m-services .svc-icon img {
+  transform: none !important;
+  will-change: auto;
+}
+#m-services .svc-body {
+  grid-row: 2;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px 16px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#m-services .svc-body .svc-num {
+  font-size: 12px; color: var(--green); letter-spacing: 2px; font-weight: 600;
+  margin: 0 0 8px;
+}
+#m-services .svc-body h3 { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin: 0 0 6px; }
+#m-services .svc-body p { font-size: 12px; color: var(--text-muted); line-height: 1.65; margin: 0 0 10px; }
+#m-services .svc-body .svc-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 0; }
+#m-services .svc-tag {
   font-size: 12px; color: var(--green-dim);
   background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.12);
   padding: 3px 9px; border-radius: 100px;
@@ -485,10 +551,17 @@ nav {
   border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; margin-top: 28px;
 }
 .etsy-shop-logo {
-  width: 56px; height: 56px; background: rgba(34,197,94,0.1); border: 1px solid var(--green-border);
-  border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+  width: auto; padding: 14px 18px; background: rgba(34,197,94,0.08); border: 1px solid var(--green-border);
+  border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
 }
-.etsy-box h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.etsy-shop-logo .brand-logo--etsy { height: 36px; width: auto; max-width: min(260px, 88vw); object-fit: contain; display: block; }
+h3.etsy-shop-logo {
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  font-size: 0;
+  line-height: 0;
+}
 .etsy-box > p { font-size: 12px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
 .etsy-stats { display: flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
 .etsy-stat { flex: 1; padding: 12px 8px; text-align: center; border-right: 1px solid var(--border); }
@@ -603,8 +676,14 @@ nav {
 
 /* ===== FOOTER ===== */
 footer { background: #01020a; padding: 40px 20px; border-top: 1px solid var(--border); }
-.footer-brand-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 6px; }
-.footer-brand-name span { color: var(--green); }
+.footer-brand-name { margin-bottom: 10px; line-height: 0; }
+.footer-brand-name .brand-logo {
+  height: 44px;
+  width: auto;
+  max-width: min(300px, 85vw);
+  display: block;
+  object-fit: contain;
+}
 .footer-tagline { font-size: 12px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; max-width: 220px; }
 .footer-links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 32px; }
 .footer-col h4 { font-size: 12px; color: var(--text-muted); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 14px; }
@@ -709,9 +788,21 @@ nav {
   border-bottom: 1px solid var(--border); background: rgba(4,6,12,0.97);
   position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px);
 }
-.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.nav-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: #fff; }
-.nav-name span { color: var(--green); }
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-brand .brand-logo {
+  height: 48px;
+  width: auto;
+  max-width: min(340px, 38vw);
+  min-height: 48px;
+  display: block;
+  object-fit: contain;
+}
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links a { color: var(--text-secondary); font-size: 13px; text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: #fff; }
@@ -731,7 +822,25 @@ nav {
   text-transform: uppercase; font-weight: 500;
 }
 .badge-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
-.hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+.hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.hero-visual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(7,11,20,0.75);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.5), 0 0 80px rgba(34,197,94,0.06);
+}
+.hero-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+#hero .hero-visual img {
+  transform: none !important;
+  will-change: auto;
+}
 .hero-sub { color: var(--text-secondary); font-size: 16px; max-width: 520px; line-height: 1.85; margin: 20px 0 36px; }
 .hero-btns { display: flex; gap: 12px; margin-bottom: 44px; flex-wrap: wrap; }
 .trust-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -823,16 +932,69 @@ nav {
   font-style: normal;
 }
 /* ============ SERVICES ============ */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border-radius: var(--radius-lg); overflow: hidden; }
-.service-card { background: var(--bg-primary); padding: 32px 26px; transition: background 0.25s; }
-.service-card:hover { background: #070b14; }
-.svc-num { font-size: 12px; color: var(--green); letter-spacing: 2px; font-weight: 600; margin-bottom: 14px; }
-.svc-icon { width: 50px; height: 50px; border-radius: 12px; background: rgba(34,197,94,0.07); border: 1px solid var(--green-border); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
-.svc-icon svg { width: 22px; height: 22px; }
-.service-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 10px; }
-.service-card p { font-size: 12px; color: var(--text-muted); line-height: 1.8; margin-bottom: 14px; }
-.svc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
-.svc-tag { font-size: 12px; color: var(--green-dim); background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.12); padding: 3px 9px; border-radius: 100px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border-radius: var(--radius-lg); overflow: hidden; align-items: stretch; }
+/* Top 50% = image, bottom 50% = copy (no overlap). Height scales with viewport; tweak clamp if needed. */
+.services-grid .service-card {
+  background: var(--bg-primary);
+  padding: 0;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  height: clamp(280px, 42vw, 380px);
+  min-height: 300px;
+  overflow: hidden;
+  transition: background 0.25s;
+}
+.services-grid .service-card:hover { background: #070b14; }
+.services-grid .svc-icon {
+  grid-row: 1;
+  min-height: 0;
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: #070b14;
+  position: relative;
+  overflow: hidden;
+}
+.services-grid .svc-icon img {
+  position: absolute;
+  inset: 0;
+  width: 70%;
+  height: 100%;
+  margin: auto;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+/* Desktop services grid: media stays static (no scroll parallax) */
+#services .svc-icon,
+#services .svc-icon img {
+  transform: none !important;
+  will-change: auto;
+}
+.services-grid .svc-body {
+  grid-row: 2;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 22px 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.services-grid .svc-body .svc-num {
+  font-size: 12px; color: var(--green); letter-spacing: 2px; font-weight: 600;
+}
+.services-grid .svc-body h3 {
+  font-family: var(--font-display); font-size: 18px; font-weight: 600; text-align: center; margin: 0 0 8px;
+}
+.services-grid .svc-body p {
+  font-size: 12px; color: var(--text-muted); text-align: center; line-height: 1.65; margin: 0 0 12px;
+}
+.services-grid .svc-body .svc-tags {
+  display: flex; gap: 5px; flex-wrap: wrap;
+  margin-top: 0; justify-content: center;
+}
+.services-grid .svc-tag { font-size: 12px; color: var(--green-dim); background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.12); padding: 3px 9px; border-radius: 100px; }
 
 /* ============ PORTFOLIO ============ */
 .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 12px; }
@@ -898,7 +1060,21 @@ nav {
   color: var(--green-dim); font-size: 10px; padding: 5px 14px;
   border-radius: 100px; margin-bottom: 20px; letter-spacing: 1.5px; text-transform: uppercase;
 }
-.etsy-label svg { width: 12px; height: 12px; }
+.etsy-label svg { width: 12px; height: 12px; flex-shrink: 0; }
+.etsy-label .brand-logo--label {
+  height: 18px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+.etsy-label .etsy-label-suffix {
+  text-transform: none;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 600;
+}
 .etsy-left h2 { margin-bottom: 14px; }
 .etsy-left p { color: var(--text-secondary); font-size: 14px; line-height: 1.85; margin-bottom: 28px; }
 .etsy-kits { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
@@ -917,8 +1093,8 @@ nav {
   background: rgba(34,197,94,0.03); border: 1px solid var(--green-border);
   border-radius: var(--radius-lg); padding: 40px 36px; text-align: center;
 }
-.etsy-shop-logo { width: 64px; height: 64px; background: rgba(34,197,94,0.1); border: 1px solid var(--green-border); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
-.etsy-right h3 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+.etsy-shop-logo { width: auto; padding: 18px 26px; background: rgba(34,197,94,0.08); border: 1px solid var(--green-border); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+.etsy-shop-logo .brand-logo--etsy { height: 44px; width: auto; max-width: min(300px, 90vw); object-fit: contain; display: block; }
 .etsy-right p { font-size: 13px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
 .etsy-stats { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
 .etsy-stat { flex: 1; padding: 14px 12px; text-align: center; border-right: 1px solid var(--border); }
@@ -1060,8 +1236,14 @@ nav {
 /* ============ FOOTER ============ */
 footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--border); }
 .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 36px; margin-bottom: 44px; }
-.footer-brand-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; }
-.footer-brand-name span { color: var(--green); }
+.footer-brand-name { margin-bottom: 12px; line-height: 0; }
+.footer-top .footer-brand-name .brand-logo {
+  height: 52px;
+  width: auto;
+  max-width: min(340px, 90vw);
+  display: block;
+  object-fit: contain;
+}
 .footer-tagline { font-size: 12px; color: var(--text-muted); margin-top: 7px; max-width: 200px; line-height: 1.8; }
 .footer-col h4 { font-size: 12px; color: var(--text-muted); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 16px; }
 .footer-col a { display: block; font-size: 12px; color: #fff; text-decoration: none; margin-bottom: 10px; font-weight: 300; }
@@ -1206,8 +1388,18 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 }
 
 .preloader-logo {
-  margin-bottom: 24px;
-  animation: logoFloat 3s ease-in-out infinite;
+  margin-bottom: 28px;
+}
+.preloader-logo img {
+  animation: none;
+}
+.preloader-logo .brand-logo--preloader {
+  width: min(300px, 86vw);
+  height: auto;
+  max-height: 90px;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
 }
 
 .preloader-text {
@@ -1420,15 +1612,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 <div id="preloader" class="preloader">
   <div class="preloader-inner">
     <div class="preloader-logo">
-      <svg width="60" height="60" viewBox="0 0 80 80" fill="none">
-        <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-        <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div class="preloader-text">
-      <div class="preloader-brand">TrueMark</div>
-      <div class="preloader-sub">Templates</div>
+      <img class="brand-logo brand-logo--preloader" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="240" height="56" />
     </div>
     <div class="preloader-bar">
       <div class="preloader-progress"></div>
@@ -1451,12 +1635,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <span></span><span></span><span></span>
   </div>
   <a href="#" class="nav-brand">
-    <svg width="28" height="28" viewBox="0 0 80 80" fill="none">
-      <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-      <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
-    </svg>
-    <span class="nav-name">TrueMark<span>Templates</span></span>
+    <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="200" height="48" />
   </a>
   <a href="#m-contact" class="nav-cta">Get a Quote</a>
 </nav>
@@ -1492,6 +1671,9 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
       <div class="avatar" style="font-size:9px;">+</div>
     </div>
     <div class="trust-text"><strong>Trusted by 46+ businesses</strong><br>Healthcare · Real Estate · Agencies · Coaches</div>
+  </div>
+  <div class="hero-visual hero-visual--mobile">
+    <img src="Images/Hero-Image.jpg.jpeg" width="1200" height="900" alt="TrueMark Templates — branding mockups: laptop, phone, print and digital assets" loading="eager" decoding="async" />
   </div>
 </section>
 
@@ -1539,7 +1721,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="problem-box">
     <p>Most businesses — clinics, agencies, realtors, coaches — <strong>know they need consistent social media.</strong> But between running day-to-day operations, it never gets done right.</p>
     <p><span class="problem-highlight">Inconsistent posts. Generic graphics. No strategy. No time.</span></p>
-    <p>TrueMark Templates fixes that. We become your <strong>dedicated creative partner</strong> — handling design, captions, and scheduling — so your brand shows up professionally every week.</p>
+    <p><strong>We fix that.</strong> We become your <strong>dedicated creative partner</strong> — handling design, captions, and scheduling — so your brand shows up professionally every week.</p>
   </div>
 </section>
 
@@ -1553,40 +1735,48 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="services-scroll-wrap" id="m-servicesScroll" >
     <div class="services-scroll">
       <div class="service-card" >
-        <div class="svc-num">01</div>
         <div class="svc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="9" height="9" rx="2"/><rect x="13" y="3" width="9" height="9" rx="2"/><rect x="2" y="14" width="9" height="9" rx="2"/><rect x="13" y="14" width="9" height="9" rx="2"/></svg>
+          <img src="Services_Imagse/Services Images (JPG) (1).jpg" alt="Social Media Services" />
         </div>
-        <h3>Social Media Packages</h3>
-        <p>Monthly done-for-you content — designed, written, and scheduled. Instagram, Facebook &amp; LinkedIn covered every week.</p>
-        <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Captions</span><span class="svc-tag">Scheduling</span></div>
+        <div class="svc-body">
+          <div class="svc-num">01</div>
+          <h3>Social Media Packages</h3>
+          <p>Monthly done-for-you content — designed, written, and scheduled. Instagram, Facebook &amp; LinkedIn covered every week.</p>
+          <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Captions</span><span class="svc-tag">Scheduling</span></div>
+        </div>
       </div>
       <div class="service-card">
-        <div class="svc-num">02</div>
         <div class="svc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          <img src="Services_Imagse/Services Images (JPG) (2).jpg" alt="Print and marketing" />
         </div>
-        <h3>Print &amp; Marketing</h3>
-        <p>Flyers, brochures, tri-folds, infographics — print-ready and web-optimized. Any format, any industry.</p>
-        <div class="svc-tags"><span class="svc-tag">Flyers</span><span class="svc-tag">Brochures</span><span class="svc-tag">Infographics</span></div>
+        <div class="svc-body">
+          <div class="svc-num">02</div>
+          <h3>Print &amp; Marketing</h3>
+          <p>Flyers, brochures, tri-folds, infographics — print-ready and web-optimized. Any format, any industry.</p>
+          <div class="svc-tags"><span class="svc-tag">Flyers</span><span class="svc-tag">Brochures</span><span class="svc-tag">Infographics</span></div>
+        </div>
       </div>
       <div class="service-card">
-        <div class="svc-num">03</div>
         <div class="svc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <img src="Services_Imagse/Services Images (JPG) (3).jpg" alt="GMB management" />
         </div>
-        <h3>GMB Management</h3>
-        <p>Keep your Google Business Profile active with regular posts, banners, and visuals that attract local customers.</p>
-        <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Banners</span><span class="svc-tag">Optimization</span></div>
+        <div class="svc-body">
+          <div class="svc-num">03</div>
+          <h3>GMB Management</h3>
+          <p>Keep your Google Business Profile active with regular posts, banners, and visuals that attract local customers.</p>
+          <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Banners</span><span class="svc-tag">Optimization</span></div>
+        </div>
       </div>
       <div class="service-card">
-        <div class="svc-num">04</div>
         <div class="svc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <img src="Services_Imagse/Services Images (JPG) (4).jpg" alt="Canva templates" />
         </div>
-        <h3>Canva Templates</h3>
-        <p>Ready-to-use, fully editable Canva template kits for any industry. Download, customize, post in minutes.</p>
-        <div class="svc-tags"><span class="svc-tag">Healthcare</span><span class="svc-tag">Real Estate</span><span class="svc-tag">Business</span></div>
+        <div class="svc-body">
+          <div class="svc-num">04</div>
+          <h3>Canva Templates</h3>
+          <p>Ready-to-use, fully editable Canva template kits for any industry. Download, customize, post in minutes.</p>
+          <div class="svc-tags"><span class="svc-tag">Healthcare</span><span class="svc-tag">Real Estate</span><span class="svc-tag">Business</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1784,14 +1974,9 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   </div>
   <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="btn-green-full" style="margin-bottom:4px;">Browse all templates on Etsy →</a>
   <div class="etsy-box">
-    <div class="etsy-shop-logo">
-      <svg width="26" height="26" viewBox="0 0 80 80" fill="none">
-        <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
-        <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <h3>TrueMark Templates</h3>
+    <h3 class="etsy-shop-logo">
+      <img class="brand-logo brand-logo--etsy" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="200" height="48" />
+    </h3>
     <p>A growing library of professionally designed digital template kits. Each product built for a specific audience.</p>
     <div class="etsy-stats">
       <div class="etsy-stat"><div class="etsy-stat-num">5+</div><div class="etsy-stat-lbl">Products</div></div>
@@ -1881,7 +2066,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     </div>
     <p class="about-text">I'm a <strong>Top Rated graphic designer and social media manager</strong> with 6+ years of experience helping businesses show up professionally online and in print. Clients across the <strong>US, UK, UAE, and Europe.</strong></p>
     <p class="about-text" style="margin-top:12px;">I've completed <strong>46+ projects on Upwork</strong> with a 100% job success score. I don't just deliver files — I become a <strong>dedicated creative partner invested in your growth.</strong></p>
-    <p class="about-text" style="margin-top:12px;">I also run TrueMark Templates — a growing Etsy shop of <strong>ready-to-use digital template kits</strong> for healthcare, real estate, and business professionals.</p>
+    <p class="about-text" style="margin-top:12px;">I also run <strong>our Etsy template shop</strong> — a growing library of <strong>ready-to-use digital template kits</strong> for healthcare, real estate, and business professionals.</p>
     <div class="skill-tags">
       <span class="skill-tag">Adobe Photoshop</span>
       <span class="skill-tag">Illustrator</span>
@@ -1938,7 +2123,9 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <div class="footer-brand-name">TrueMark<span>Templates</span></div>
+  <div class="footer-brand-name">
+    <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="220" height="52" />
+  </div>
   <p class="footer-tagline">Graphic design &amp; social media management for businesses that mean business.</p>
   <div class="footer-links-grid">
     <div class="footer-col">
@@ -1959,7 +2146,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 TrueMark Templates · Muhammad Paras Khan</div>
+    <div class="footer-copy">© 2025 Muhammad Paras Khan</div>
     <div class="footer-social">
       <a href="https://www.upwork.com/freelancers/parascreativestudio" target="_blank">Upwork</a>
       <a href="https://truemarktemplates.etsy.com" target="_blank">Etsy</a>
@@ -1977,12 +2164,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <span></span><span></span><span></span>
   </div>
   <a href="#" class="nav-brand">
-    <svg width="28" height="28" viewBox="0 0 80 80" fill="none">
-      <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-      <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
-    </svg>
-    <span class="nav-name">TrueMark<span>Templates</span></span>
+    <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="200" height="48" />
   </a>
   <a href="#m-contact" class="nav-cta">Get a Quote</a>
 </nav>
@@ -1991,12 +2173,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 <!-- ============ NAVIGATION ============ -->
 <nav>
   <a href="#" class="nav-brand">
-    <svg width="34" height="34" viewBox="0 0 80 80" fill="none">
-      <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-      <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
-    </svg>
-    <span class="nav-name">TrueMark<span>Templates</span></span>
+    <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="220" height="52" />
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -2031,17 +2208,9 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <div class="trust-text"><strong>Trusted by 46+ businesses</strong><br>Healthcare · Real Estate · Agencies · Coaches</div>
       </div>
     </div>
-    <!-- <div class="hero-video">
-      <iframe 
-        width="100%" 
-        height="450" 
-        src="https://www.youtube-nocookie.com/embed/h62rCLhDxrY?autoplay=1&mute=0&loop=1&playlist=h62rCLhDxrY&controls=0&showinfo=0&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3&cc_load_policy=0&autohide=1&fs=0&playsinline=1&start=0" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-        sandbox="allow-same-origin allow-scripts allow-popups">
-      </iframe>
-    </div> -->
+    <div class="hero-visual">
+      <img src="Images/Hero-Image.jpg.jpeg" width="1200" height="900" alt="TrueMark Templates — branding mockups: laptop, phone, print and digital assets" loading="eager" decoding="async" />
+    </div>
   </div>
 </section>
 
@@ -2104,7 +2273,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     </p>
 
     <p>
-      TrueMark Templates fixes that. We become your
+      <strong>We fix that.</strong> We become your
       <strong>dedicated creative partner</strong>
       — handling design, captions, and scheduling — so your brand shows up
       professionally every week.
@@ -2119,40 +2288,48 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <p style="color:var(--text-secondary);font-size:14px;max-width:480px;margin:12px 0 44px;font-weight:300;">Full creative support for any business that needs to look professional and stay consistent online.</p>
   <div class="services-grid">
     <div class="service-card">
-      <div class="svc-num">01</div>
       <div class="svc-icon">
-        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><rect x="2" y="3" width="9" height="9" rx="2"/><rect x="13" y="3" width="9" height="9" rx="2"/><rect x="2" y="14" width="9" height="9" rx="2"/><rect x="13" y="14" width="9" height="9" rx="2"/></svg>
+          <img src="Services_Imagse/Services Images (JPG) (1).jpg" alt="Social Media Services" />
       </div>
-      <h3>Social media packages</h3>
-      <p>Monthly done-for-you content — designed, written, and scheduled. Instagram, Facebook &amp; LinkedIn covered every week.</p>
-      <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Captions</span><span class="svc-tag">Scheduling</span></div>
+      <div class="svc-body">
+        <!-- <div class="svc-num">01</div> -->
+        <h3>Social media packages</h3>
+        <p>Monthly done-for-you content — designed, written, and scheduled. Instagram, Facebook &amp; LinkedIn covered every week.</p>
+        <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Captions</span><span class="svc-tag">Scheduling</span></div>
+      </div>
     </div>
     <div class="service-card">
-      <div class="svc-num">02</div>
       <div class="svc-icon">
-        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        <img src="Services_Imagse/Services Images (JPG) (2).jpg" alt="Print and marketing" />
       </div>
-      <h3>Print &amp; marketing</h3>
-      <p>Flyers, brochures, tri-folds, infographics — print-ready and web-optimized. Any format, any industry.</p>
-      <div class="svc-tags"><span class="svc-tag">Flyers</span><span class="svc-tag">Brochures</span><span class="svc-tag">Infographics</span></div>
+      <div class="svc-body">
+        <!-- <div class="svc-num">02</div> -->
+        <h3>Print &amp; marketing</h3>
+        <p>Flyers, brochures, tri-folds, infographics — print-ready and web-optimized. Any format, any industry.</p>
+        <div class="svc-tags"><span class="svc-tag">Flyers</span><span class="svc-tag">Brochures</span><span class="svc-tag">Infographics</span></div>
+      </div>
     </div>
     <div class="service-card">
-      <div class="svc-num">03</div>
       <div class="svc-icon">
-        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <img src="Services_Imagse/Services Images (JPG) (3).jpg" alt="GMB management" />
       </div>
-      <h3>GMB management</h3>
-      <p>Keep your Google Business Profile active with regular posts, banners, and visuals that attract local customers.</p>
-      <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Banners</span><span class="svc-tag">Optimization</span></div>
+      <div class="svc-body">
+        <!-- <div class="svc-num">03</div> -->
+        <h3>GMB management</h3>
+        <p>Keep your Google Business Profile active with regular posts, banners, and visuals that attract local customers.</p>
+        <div class="svc-tags"><span class="svc-tag">Posts</span><span class="svc-tag">Banners</span><span class="svc-tag">Optimization</span></div>
+      </div>
     </div>
     <div class="service-card">
-      <div class="svc-num">04</div>
       <div class="svc-icon">
-        <svg class="icon" viewBox="0 0 24 24" stroke="#22c55e"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        <img src="Services_Imagse/Services Images (JPG) (4).jpg" alt="Canva templates" />
       </div>
-      <h3>Canva templates</h3>
-      <p>Ready-to-use, fully editable Canva template kits for any industry. Download, customize, post in minutes.</p>
-      <div class="svc-tags"><span class="svc-tag">Healthcare</span><span class="svc-tag">Real Estate</span><span class="svc-tag">Business</span></div>
+      <div class="svc-body">
+        <!-- <div class="svc-num">04</div> -->
+        <h3>Canva templates</h3>
+        <p>Ready-to-use, fully editable Canva template kits for any industry. Download, customize, post in minutes.</p>
+        <div class="svc-tags"><span class="svc-tag">Healthcare</span><span class="svc-tag">Real Estate</span><span class="svc-tag">Business</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -2316,7 +2493,8 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <div class="etsy-left">
       <div class="etsy-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        Shop TrueMark Templates on Etsy
+        <img class="brand-logo brand-logo--label" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="" width="120" height="28" aria-hidden="true" />
+        <span class="etsy-label-suffix">on Etsy</span>
       </div>
       <h2>Not ready for a full package?<br>Start with a <em>template kit.</em></h2>
       <p>Browse our growing collection of ready-made Canva template kits — professionally designed for healthcare, real estate, and business professionals. Instant download, fully editable, post-ready in minutes. No design skills needed.</p>
@@ -2350,14 +2528,9 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
       <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="btn btn-green">Browse all templates on Etsy →</a>
     </div>
     <div class="etsy-right">
-      <div class="etsy-shop-logo">
-        <svg width="30" height="30" viewBox="0 0 80 80" fill="none">
-          <circle cx="40" cy="40" r="32" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
-          <path d="M26 20L26 60M26 20L54 20M26 38L46 38" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M46 38L54 20" stroke="#22c55e" stroke-width="5.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <h3>TrueMark Templates</h3>
+      <h3 class="etsy-shop-logo">
+        <img class="brand-logo brand-logo--etsy" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="220" height="52" />
+      </h3>
       <p>Our Etsy shop is home to a growing library of professionally designed digital template kits. Each product is built for a specific audience — so you get exactly what you need.</p>
       <div class="etsy-stats">
         <div class="etsy-stat"><div class="etsy-stat-num">5+</div><div class="etsy-stat-lbl">Products live</div></div>
@@ -2478,7 +2651,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <div>
       <p class="about-text">I'm a <strong>Top Rated graphic designer and social media manager</strong> with 6+ years of experience helping businesses show up professionally online and in print. I work with clients across the <strong>US, UK, UAE, and Europe</strong> — from healthcare clinics to real estate agencies to creative studios.</p>
       <p class="about-text" style="margin-top:16px;">I've completed <strong>46+ projects on Upwork</strong> with a 100% job success score. I don't just deliver files — I become a <strong>dedicated creative partner invested in your growth.</strong></p>
-      <p class="about-text" style="margin-top:16px;">I also run TrueMark Templates — a growing Etsy shop of <strong>ready-to-use digital template kits</strong> for healthcare, real estate, and business professionals.</p>
+      <p class="about-text" style="margin-top:16px;">I also run <strong>our Etsy template shop</strong> — a growing library of <strong>ready-to-use digital template kits</strong> for healthcare, real estate, and business professionals.</p>
       <div class="skill-tags">
         <span class="skill-tag">Adobe Photoshop</span>
         <span class="skill-tag">Illustrator</span>
@@ -2543,7 +2716,9 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-name">TrueMark<span>Templates</span></div>
+      <div class="footer-brand-name">
+        <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="240" height="56" />
+      </div>
       <p class="footer-tagline">Graphic design &amp; social media management for businesses that mean business.</p>
     </div>
     <div class="footer-col">
@@ -2572,7 +2747,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 TrueMark Templates · Muhammad Paras Khan · All rights reserved.</div>
+    <div class="footer-copy">© 2025 Muhammad Paras Khan · All rights reserved.</div>
     <div class="footer-social">
       <a href="https://www.upwork.com/freelancers/parascreativestudio" target="_blank" rel="noopener">Upwork</a>
       <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener">Etsy</a>
@@ -2932,7 +3107,7 @@ reviewsScroll.addEventListener('scroll', () => {
   function initCardTiltEffects() {
     if (CONFIG.isMobile) return;
 
-    const cards = document.querySelectorAll('.service-card, .pkg, .trust-card, .review-card');
+    const cards = document.querySelectorAll('.pkg, .trust-card, .review-card');
     
     cards.forEach(card => {
       card.classList.add('tilt-card');
@@ -3060,7 +3235,9 @@ reviewsScroll.addEventListener('scroll', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Section reveals
-    const sections = gsap.utils.toArray('section');
+    const sections = gsap.utils.toArray('section').filter(
+      (s) => s.id !== 'services' && s.id !== 'm-services'
+    );
     sections.forEach((section, i) => {
       gsap.fromTo(section,
         { autoAlpha: 0, y: 60 },
@@ -3080,7 +3257,7 @@ reviewsScroll.addEventListener('scroll', () => {
     });
 
     // Staggered element reveals
-    const staggerElements = gsap.utils.toArray('.service-card, .pkg, .trust-card, .review-slide');
+    const staggerElements = gsap.utils.toArray('.pkg, .trust-card, .review-slide');
     staggerElements.forEach((element, i) => {
       gsap.fromTo(element,
         { autoAlpha: 0, y: 40, scale: 0.9 },
@@ -3104,7 +3281,8 @@ reviewsScroll.addEventListener('scroll', () => {
       const textElements = gsap.utils.toArray('h2, h3, .eyebrow');
       textElements.forEach(el => {
         if (el.closest('.js-split-hero')) return; // Skip hero title
-        
+        if (el.closest('.service-card')) return; // Static service cards (no text scrub)
+
         const split = new SplitType(el, { types: 'lines, words' });
         gsap.set(split.lines, { overflow: 'hidden' });
         gsap.set(split.words, { yPercent: 100 });
@@ -3126,8 +3304,16 @@ reviewsScroll.addEventListener('scroll', () => {
 
   // ===== PARALLAX EFFECTS =====
   function initParallaxEffects() {
-    const parallaxElements = gsap.utils.toArray('img, .svc-icon, .trust-icon-wrap');
-    
+    const imgs = gsap.utils.toArray('img').filter(
+      (img) =>
+        !img.classList.contains('brand-logo') &&
+        !img.closest('#services') &&
+        !img.closest('#m-services') &&
+        !img.closest('#hero') &&
+        !img.closest('#m-hero')
+    );
+    const parallaxElements = [...imgs, ...gsap.utils.toArray('.trust-icon-wrap')];
+
     parallaxElements.forEach(el => {
       const rect = el.getBoundingClientRect();
       const isSmall = Math.min(rect.width || 0, rect.height || 0) < 80;
@@ -3377,7 +3563,7 @@ reviewsScroll.addEventListener('scroll', () => {
   // ===== PREMIUM GRADIENTS AND GLASSMORPHISM =====
   function initPremiumVisualEffects() {
     // Add glassmorphism to key elements
-    const glassElements = document.querySelectorAll('.nav, .hero-badge, .service-card, .pkg.featured, .contact-card');
+    const glassElements = document.querySelectorAll('.nav, .hero-badge, .pkg.featured, .contact-card');
     glassElements.forEach(el => {
       el.classList.add('glass');
     });
