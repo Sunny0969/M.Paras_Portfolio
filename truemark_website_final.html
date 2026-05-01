@@ -73,8 +73,15 @@ img { will-change: transform; transform: translateZ(0); }
   .layout-desktop { display: block !important; }
 }
 
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+/* Client logo strip: two identical halves, -50% = seamless loop */
+@keyframes logoMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-inner { animation: none !important; }
+}
 @keyframes reviewSlide {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -333,19 +340,45 @@ nav {
 }
 
 
-/* ===== TICKER ===== */
+/* ===== TICKER (client logos — infinite marquee, 2× duplicate set) ===== */
 .ticker {
-  background: rgba(34,197,94,0.025);
-  border-bottom: 1px solid rgba(34,197,94,0.08);
-  padding: 11px 0; overflow: hidden; white-space: nowrap;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 0;
+  overflow: hidden;
 }
 .ticker-inner {
-  display: inline-flex; gap: 36px;
-  animation: ticker 22s linear infinite;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 28px;
+  width: max-content;
+  animation: logoMarquee 36s linear infinite;
+  will-change: transform;
 }
+.ticker-inner:hover { animation-play-state: paused; }
 
-.tick-item { font-size: 10px; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
-.tick-sep { color: var(--green); font-size: 8px; }
+.tick-item { font-size: 10px; color: #1f2937; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+.tick-sep { color: #15803d; font-size: 8px; flex-shrink: 0; line-height: 1; }
+.tick-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 36px;
+  min-width: 72px;
+  padding: 4px 0;
+  box-sizing: content-box;
+}
+.tick-logo {
+  display: block;
+  height: 26px;
+  width: auto;
+  max-width: min(130px, 22vw);
+  object-fit: contain;
+  object-position: center center;
+}
 
 /* ===== PROBLEM ===== */
 .problem-box {
@@ -407,11 +440,14 @@ nav {
 }
 #m-services .svc-icon img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  left: 8px;
+  right: 8px;
+  top: 14px;
+  bottom: 14px;
+  width: calc(100% - 16px);
+  height: calc(100% - 28px);
+  object-fit: contain;
+  object-position: center center;
   display: block;
 }
 #m-services .svc-icon,
@@ -827,15 +863,10 @@ nav {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(7,11,20,0.75);
-  box-shadow: 0 28px 90px rgba(0,0,0,0.5), 0 0 80px rgba(34,197,94,0.06);
 }
 .hero-visual img {
-  width: 100%;
+  width: 90%;
   height: auto;
-  display: block;
-  object-fit: contain;
 }
 #hero .hero-visual img {
   transform: none !important;
@@ -872,13 +903,45 @@ nav {
 .stats-strip .num span { color: var(--green); }
 .stats-strip .lbl { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
 
-/* ============ TICKER ============ */
-.ticker { background: rgba(34,197,94,0.025); border-bottom: 1px solid rgba(34,197,94,0.08); padding: 12px 0; overflow: hidden; white-space: nowrap; }
-.ticker-inner { display: inline-flex; gap: 44px; animation: ticker 25s linear infinite; }
+/* ============ TICKER (client logos — infinite marquee, 2× duplicate set) ============ */
+.ticker {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 0;
+  overflow: hidden;
+}
+.ticker-inner {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 44px;
+  width: max-content;
+  animation: logoMarquee 40s linear infinite;
+  will-change: transform;
+}
 .ticker-inner:hover { animation-play-state: paused; }
 
-.tick-item { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 2px; text-transform: uppercase; }
-.tick-sep { color: var(--green); font-size: 9px; }
+.tick-item { font-size: 11px; color: #111827; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+.tick-sep { color: #15803d; font-size: 9px; flex-shrink: 0; line-height: 1; }
+.tick-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 48px;
+  min-width: 88px;
+  padding: 6px 0;
+  box-sizing: content-box;
+}
+.tick-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: min(200px, 18vw);
+  object-fit: contain;
+  object-position: center center;
+}
 
 /* ============ PROBLEM SECTION ============ */
 
@@ -933,7 +996,7 @@ nav {
 }
 /* ============ SERVICES ============ */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border-radius: var(--radius-lg); overflow: hidden; align-items: stretch; }
-/* Top 50% = image, bottom 50% = copy (no overlap). Height scales with viewport; tweak clamp if needed. */
+/* Top 50% = image band (image inset = smaller graphic), bottom 50% = copy. */
 .services-grid .service-card {
   background: var(--bg-primary);
   padding: 0;
@@ -958,12 +1021,14 @@ nav {
 }
 .services-grid .svc-icon img {
   position: absolute;
-  inset: 0;
-  width: 70%;
-  height: 100%;
-  margin: auto;
-  object-fit: cover;
-  object-position: center top;
+  left: 12px;
+  right: 12px;
+  top: 20px;
+  bottom: 20px;
+  width: calc(100% - 24px);
+  height: calc(100% - 40px);
+  object-fit: contain;
+  object-position: center center;
   display: block;
 }
 /* Desktop services grid: media stays static (no scroll parallax) */
@@ -1688,34 +1753,54 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 
 
 
-<!-- ===== TICKER ===== -->
+<!-- ===== TICKER: wide strip — 5× logo cycle per half, duplicated for seamless -50% loop ===== -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
-    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
-    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
-    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
-    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
-    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
-    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
-    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="UP Inspections &amp; Building Consultants" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="Loddon Cars" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="CLS Health" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="City Orthopaedics &amp; Sports Medicine" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
   </div>
 </div>
 
 <!-- ===== PROBLEM ===== -->
-<section>
+<section class="problem-section">
   <div class="eyebrow">The problem</div>
   <h2>Your business deserves better than random posting.</h2>
   <div class="problem-box">
@@ -2209,7 +2294,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
       </div>
     </div>
     <div class="hero-visual">
-      <img src="Images/Hero-Image.jpg.jpeg" width="1200" height="900" alt="TrueMark Templates — branding mockups: laptop, phone, print and digital assets" loading="eager" decoding="async" />
+      <img src="Images/Hero-Image.jpg.jpeg" width="1000" height="900" alt="TrueMark Templates — branding mockups: laptop, phone, print and digital assets" loading="eager" decoding="async" />
     </div>
   </div>
 </section>
@@ -2223,30 +2308,49 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="cell"><div class="num">US<span>+UK</span></div><div class="lbl">Primary markets</div></div>
 </div>
 
-<!-- ============ TICKER ============ -->
+<!-- ============ TICKER — 5× cycle per half (matches mobile) for full-width marquee ============ -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
-    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
-    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
-    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
-    <!-- Duplicate for infinite scroll -->
-    <span class="tick-item">City Orthopaedics</span><span class="tick-sep">✦</span>
-    <span class="tick-item">CLS Health</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Tooth Truth</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Healthcare</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Real Estate</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Social Media Packages</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Graphic Design</span><span class="tick-sep">✦</span>
-    <span class="tick-item">GMB Management</span><span class="tick-sep">✦</span>
-    <span class="tick-item">Canva Templates</span><span class="tick-sep">✦</span>
-    <span class="tick-item">US · UK · UAE</span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="UP Inspections &amp; Building Consultants" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="Loddon Cars" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="CLS Health" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="City Orthopaedics &amp; Sports Medicine" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
+    <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
   </div>
 </div>
 
@@ -2543,7 +2647,6 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
 <!-- ===== REVIEWS ===== -->
 <section>
   <div class="eyebrow">Reviews</div>
@@ -3236,7 +3339,10 @@ reviewsScroll.addEventListener('scroll', () => {
 
     // Section reveals
     const sections = gsap.utils.toArray('section').filter(
-      (s) => s.id !== 'services' && s.id !== 'm-services'
+      (s) =>
+        s.id !== 'services' &&
+        s.id !== 'm-services' &&
+        !s.classList.contains('problem-section')
     );
     sections.forEach((section, i) => {
       gsap.fromTo(section,
@@ -3282,6 +3388,7 @@ reviewsScroll.addEventListener('scroll', () => {
       textElements.forEach(el => {
         if (el.closest('.js-split-hero')) return; // Skip hero title
         if (el.closest('.service-card')) return; // Static service cards (no text scrub)
+        if (el.closest('.problem-section')) return; // Avoid overlap / clipped lines with pin removed
 
         const split = new SplitType(el, { types: 'lines, words' });
         gsap.set(split.lines, { overflow: 'hidden' });
@@ -3307,6 +3414,8 @@ reviewsScroll.addEventListener('scroll', () => {
     const imgs = gsap.utils.toArray('img').filter(
       (img) =>
         !img.classList.contains('brand-logo') &&
+        !img.classList.contains('tick-logo') &&
+        !img.closest('.ticker') &&
         !img.closest('#services') &&
         !img.closest('#m-services') &&
         !img.closest('#hero') &&
@@ -3421,36 +3530,6 @@ reviewsScroll.addEventListener('scroll', () => {
         gsap.to(reviewsTrack, { duration: 0.5, ease: 'power2.out' });
       });
     }
-  }
-
-  // ===== ENHANCED MARQUEE ANIMATIONS =====
-  function initEnhancedMarquee() {
-    const tickerInners = document.querySelectorAll('.ticker-inner');
-    
-    tickerInners.forEach(ticker => {
-      // Pause on hover
-      ticker.addEventListener('mouseenter', () => {
-        ticker.style.animationPlayState = 'paused';
-      });
-
-      ticker.addEventListener('mouseleave', () => {
-        ticker.style.animationPlayState = 'running';
-      });
-
-      // Add subtle parallax effect
-      gsap.to(ticker, {
-        xPercent: -50,
-        duration: 25,
-        ease: 'none',
-        repeat: -1,
-        scrollTrigger: {
-          trigger: ticker,
-          start: 'top bottom',
-          end: 'bottom top',
-          toggleActions: 'play pause resume pause'
-        }
-      });
-    });
   }
 
   // ===== MOBILE MENU ANIMATIONS =====
@@ -3581,26 +3660,6 @@ reviewsScroll.addEventListener('scroll', () => {
     });
   }
 
-  // ===== STICKY STORYTELLING SECTIONS =====
-  function initStickyStorytelling() {
-    if (CONFIG.isMobile) return;
-
-    const problemSection = document.querySelector('.problem-section');
-    if (!problemSection) return;
-
-    // Create sticky effect for problem section
-    gsap.to(problemSection, {
-      scrollTrigger: {
-        trigger: problemSection,
-        start: 'top top',
-        end: 'bottom top',
-        pin: true,
-        pinSpacing: false,
-        scrub: 1
-      }
-    });
-  }
-
   // ===== MAIN ANIMATION INITIALIZATION =====
   function startMainAnimations() {
     CONFIG.animationsReady = true;
@@ -3616,9 +3675,7 @@ reviewsScroll.addEventListener('scroll', () => {
     initMouseMovementEffects();
     initMobileMenuAnimations();
     initTestimonialAnimations();
-    initEnhancedMarquee();
     initPremiumVisualEffects();
-    initStickyStorytelling();
   }
 
   // ===== INITIALIZATION =====
