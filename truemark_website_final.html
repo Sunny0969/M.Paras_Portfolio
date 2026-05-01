@@ -325,10 +325,14 @@ nav {
   height: auto;
   display: block;
   object-fit: contain;
+  opacity: 1;
+  filter: none;
 }
 #m-hero .hero-visual img {
   transform: none !important;
   will-change: auto;
+  opacity: 1;
+  filter: none;
 }
 
 /* ===== STATS STRIP (2x2 grid) ===== */
@@ -449,6 +453,8 @@ nav {
   object-fit: contain;
   object-position: center center;
   display: block;
+  opacity: 1;
+  filter: none;
 }
 #m-services .svc-icon,
 #m-services .svc-icon img {
@@ -706,8 +712,8 @@ h3.etsy-shop-logo {
   background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(34,197,94,0.05) 0%, transparent 70%);
   pointer-events: none;
 }
-.final-cta h2 { position: relative; z-index: 1; margin-bottom: 12px; }
-.final-cta p { color: var(--text-secondary); font-size: 13px; margin-bottom: 28px; position: relative; z-index: 1; }
+.final-cta h2 { position: relative; text-align: center; z-index: 1; margin-bottom: 12px; }
+.final-cta p { color: var(--text-secondary); text-align: center; font-size: 13px; margin-bottom: 28px; position: relative; z-index: 1; }
 .final-cta-btns { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
 
 /* ===== FOOTER ===== */
@@ -867,10 +873,14 @@ nav {
 .hero-visual img {
   width: 90%;
   height: auto;
+  opacity: 1;
+  filter: none;
 }
 #hero .hero-visual img {
   transform: none !important;
   will-change: auto;
+  opacity: 1;
+  filter: none;
 }
 .hero-sub { color: var(--text-secondary); font-size: 16px; max-width: 520px; line-height: 1.85; margin: 20px 0 36px; }
 .hero-btns { display: flex; gap: 12px; margin-bottom: 44px; flex-wrap: wrap; }
@@ -1030,6 +1040,8 @@ nav {
   object-fit: contain;
   object-position: center center;
   display: block;
+  opacity: 1;
+  filter: none;
 }
 /* Desktop services grid: media stays static (no scroll parallax) */
 #services .svc-icon,
@@ -1294,8 +1306,8 @@ nav {
   background: radial-gradient(ellipse 55% 70% at 50% 50%, rgba(34,197,94,0.05) 0%, transparent 70%);
   pointer-events: none;
 }
-.final-cta h2 { position: relative; z-index: 1; margin-bottom: 14px; }
-.final-cta p { color: var(--text-secondary); font-size: 14px; margin-bottom: 32px; position: relative; z-index: 1; }
+.final-cta h2 { position: relative; text-align: center; z-index: 1; margin-bottom: 14px; }
+.final-cta p { color: var(--text-secondary); text-align: center; font-size: 14px; margin-bottom: 32px; position: relative; z-index: 1; }
 .final-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
 
 /* ============ FOOTER ============ */
@@ -1523,7 +1535,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -1748,7 +1760,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="cell"><div class="num">6<span>+</span></div><div class="lbl">Years exp.</div></div>
   <div class="cell"><div class="num">100<span>%</span></div><div class="lbl">Job Success</div></div>
   <div class="cell"><div class="num">5<span>★</span></div><div class="lbl">Avg rating</div></div>
-  <div class="cell"><div class="num">US<span>+UK</span></div><div class="lbl">Primary markets</div></div>
+  <div class="cell"><div class="num">US<span>+UK</span></div><div class="lbl">UAE + Europe</div><div class="lbl">Primary markets</div></div>
 </div>
 
 
@@ -2305,7 +2317,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="cell"><div class="num">6<span>+</span></div><div class="lbl">Years experience</div></div>
   <div class="cell"><div class="num">100<span>%</span></div><div class="lbl">Job success · Upwork</div></div>
   <div class="cell"><div class="num">5<span>★</span></div><div class="lbl">Average rating</div></div>
-  <div class="cell"><div class="num">US<span>+UK</span></div><div class="lbl">Primary markets</div></div>
+  <div class="cell"><div class="num">US<span>, UK</span></div><div class="lbl">UAE & Europe</div>   </div>
 </div>
 
 <!-- ============ TICKER — 5× cycle per half (matches mobile) for full-width marquee ============ -->
@@ -3343,6 +3355,8 @@ reviewsScroll.addEventListener('scroll', () => {
       (s) =>
         s.id !== 'services' &&
         s.id !== 'm-services' &&
+        s.id !== 'hero' &&
+        s.id !== 'm-hero' &&
         !s.classList.contains('problem-section')
     );
     sections.forEach((section, i) => {
@@ -3654,11 +3668,6 @@ reviewsScroll.addEventListener('scroll', () => {
       el.classList.add('gradient-text');
     });
 
-    // Add gradient backgrounds to sections
-    const heroSections = document.querySelectorAll('#hero, #m-hero');
-    heroSections.forEach(section => {
-      section.classList.add('gradient-bg');
-    });
   }
 
   // ===== MAIN ANIMATION INITIALIZATION =====
