@@ -346,11 +346,15 @@ nav {
 
 /* ===== TICKER (client logos — infinite marquee, 2× duplicate set) ===== */
 .ticker {
-  background: #ffffff;
+  background-color: #ffffff;
+  background-image: none;
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
   padding: 12px 0;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
 }
 .ticker-inner {
   display: inline-flex;
@@ -358,6 +362,7 @@ nav {
   flex-wrap: nowrap;
   gap: 28px;
   width: max-content;
+  background-color: #ffffff;
   animation: logoMarquee 36s linear infinite;
   will-change: transform;
 }
@@ -915,11 +920,15 @@ nav {
 
 /* ============ TICKER (client logos — infinite marquee, 2× duplicate set) ============ */
 .ticker {
-  background: #ffffff;
+  background-color: #ffffff;
+  background-image: none;
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
   padding: 14px 0;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
 }
 .ticker-inner {
   display: inline-flex;
@@ -927,6 +936,7 @@ nav {
   flex-wrap: nowrap;
   gap: 44px;
   width: max-content;
+  background-color: #ffffff;
   animation: logoMarquee 40s linear infinite;
   will-change: transform;
 }
