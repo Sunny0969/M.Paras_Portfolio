@@ -43,6 +43,86 @@ body {
   overflow-x: hidden;
 }
 
+/* Contact success modal (all layouts) */
+.thank-you-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+  padding: 20px;
+}
+.thank-you-popup.is-open {
+  display: flex;
+}
+.thank-you-popup .popup-content {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+.thank-you-popup .popup-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 22px;
+  color: #000;
+  font-weight: 800;
+}
+.thank-you-popup .popup-content h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.thank-you-popup .popup-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+.thank-you-popup .popup-close {
+  margin-top: 18px;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+/* Packages footnote — bold CTA scrolls to contact form */
+.pkg-footnote-link {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.pkg-footnote-link:hover {
+  filter: brightness(1.12);
+}
+
+.limited-discounts {
+  font-size: 12px;
+  color: var(--green-dim);
+  margin: 12px 0 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.limited-discounts strong {
+  color: var(--green);
+  font-weight: 700;
+}
+
 /* GSAP-friendly rendering hints */
 section { will-change: transform, opacity; }
 img { will-change: transform; transform: translateZ(0); }
@@ -159,10 +239,10 @@ nav {
 }
 /* PNG has lots of empty padding — use explicit size so the mark stays readable */
 .nav-brand .brand-logo {
-  height: 60px;
+  height: 72px;
   width: auto;
-  max-width: min(280px, 72vw);
-  min-height: 60px;
+  max-width: min(320px, 80vw);
+  min-height: 72px;
   display: block;
   object-fit: contain;
 }
@@ -601,7 +681,7 @@ nav {
   width: auto; padding: 14px 18px; background: rgba(34,197,94,0.08); border: 1px solid var(--green-border);
   border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
 }
-.etsy-shop-logo .brand-logo--etsy { height: 36px; width: auto; max-width: min(260px, 88vw); object-fit: contain; display: block; }
+.etsy-shop-logo .brand-logo--etsy { height: 46px; width: auto; max-width: min(300px, 90vw); object-fit: contain; display: block; }
 h3.etsy-shop-logo {
   margin-left: auto;
   margin-right: auto;
@@ -725,9 +805,9 @@ h3.etsy-shop-logo {
 footer { background: #01020a; padding: 40px 20px; border-top: 1px solid var(--border); }
 .footer-brand-name { margin-bottom: 10px; line-height: 0; }
 .footer-brand-name .brand-logo {
-  height: 44px;
+  height: 54px;
   width: auto;
-  max-width: min(300px, 85vw);
+  max-width: min(360px, 88vw);
   display: block;
   object-fit: contain;
 }
@@ -768,6 +848,9 @@ footer { background: #01020a; padding: 40px 20px; border-top: 1px solid var(--bo
   white-space: nowrap;
 }
 .stats-strip .num span { color: var(--green); }
+.stats-strip .cell--markets .num,
+.stats-strip .cell--markets .num span { color: #fff; }
+.stats-strip .cell--markets .lbl--geo { color: #fff; }
 .stats-strip .lbl {
   font-size: 9px;
   color: var(--text-muted);
@@ -843,10 +926,10 @@ nav {
   flex-shrink: 0;
 }
 .nav-brand .brand-logo {
-  height: 48px;
+  height: 58px;
   width: auto;
-  max-width: min(340px, 38vw);
-  min-height: 48px;
+  max-width: min(400px, 42vw);
+  min-height: 58px;
   display: block;
   object-fit: contain;
 }
@@ -932,6 +1015,9 @@ nav {
 .stats-strip .cell:last-child { border-right: none; }
 .stats-strip .num { font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1; }
 .stats-strip .num span { color: var(--green); }
+.stats-strip .cell--markets .num,
+.stats-strip .cell--markets .num span { color: #fff; }
+.stats-strip .cell--markets .lbl--geo { color: #fff; }
 .stats-strip .lbl { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
 
 /* ============ TICKER (client logos — infinite marquee, 2× duplicate set) ============ */
@@ -1165,9 +1251,9 @@ nav {
 }
 .etsy-label svg { width: 12px; height: 12px; flex-shrink: 0; }
 .etsy-label .brand-logo--label {
-  height: 30px;
+  height: 38px;
   width: auto;
-  max-width: 340px;
+  max-width: 400px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -1197,7 +1283,7 @@ nav {
   border-radius: var(--radius-lg); padding: 40px 36px; text-align: center;
 }
 .etsy-shop-logo { width: auto; padding: 18px 26px; background: rgba(34,197,94,0.08); border: 1px solid var(--green-border); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
-.etsy-shop-logo .brand-logo--etsy { height: 44px; width: auto; max-width: min(300px, 90vw); object-fit: contain; display: block; }
+.etsy-shop-logo .brand-logo--etsy { height: 54px; width: auto; max-width: min(360px, 92vw); object-fit: contain; display: block; }
 .etsy-right p { font-size: 13px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
 .etsy-stats { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
 .etsy-stat { flex: 1; padding: 14px 12px; text-align: center; border-right: 1px solid var(--border); }
@@ -1341,9 +1427,9 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 36px; margin-bottom: 44px; }
 .footer-brand-name { margin-bottom: 12px; line-height: 0; }
 .footer-top .footer-brand-name .brand-logo {
-  height: 52px;
+  height: 64px;
   width: auto;
-  max-width: min(340px, 90vw);
+  max-width: min(400px, 92vw);
   display: block;
   object-fit: contain;
 }
@@ -1359,61 +1445,6 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 /* ============ SVG ICONS (inline, no library needed) ============ */
 .icon { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
-
-/* ===== THANK YOU POPUP ===== */
-.thank-you-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.popup-content {
-  background: var(--bg-primary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 40px 30px;
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
-  animation: slideUp 0.3s ease-in-out;
-}
-
-.popup-icon {
-  width: 60px;
-  height: 60px;
-  background: var(--green);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  font-size: 24px;
-  color: white;
-  font-weight: bold;
-}
-
-.popup-content h3 {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: var(--text-primary);
-}
-
-.popup-content p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0;
-}
 
 /* Form validation styles */
 .form-input.error {
@@ -1497,9 +1528,9 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   animation: none;
 }
 .preloader-logo .brand-logo--preloader {
-  width: min(300px, 86vw);
+  width: min(360px, 90vw);
   height: auto;
-  max-height: 90px;
+  max-height: 110px;
   margin: 0 auto;
   display: block;
   object-fit: contain;
@@ -1715,7 +1746,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 <div id="preloader" class="preloader">
   <div class="preloader-inner">
     <div class="preloader-logo">
-      <img class="brand-logo brand-logo--preloader" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="240" height="56" />
+      <img class="brand-logo brand-logo--preloader" src="TrueMark Transparent logo-11transparent.png" alt="TrueMark Templates" width="360" height="84" />
     </div>
     <div class="preloader-bar">
       <div class="preloader-progress"></div>
@@ -1738,7 +1769,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <span></span><span></span><span></span>
   </div>
   <a href="#" class="nav-brand">
-    <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="200" height="48" />
+    <img class="brand-logo" src="TrueMark Transparent logo-11transparent.png" alt="TrueMark Templates" width="260" height="62" />
   </a>
   <a href="#m-contact" class="nav-cta">Get a Quote</a>
 </nav>
@@ -1786,7 +1817,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="cell"><div class="num">6<span>+</span></div><div class="lbl">Years exp.</div></div>
   <div class="cell"><div class="num">100<span>%</span></div><div class="lbl">Job Success</div></div>
   <div class="cell"><div class="num">5<span>★</span></div><div class="lbl">Avg rating</div></div>
-  <div class="cell"><div class="num">US<span>+UK</span></div><div class="lbl">UAE + Europe</div><div class="lbl">Primary markets</div></div>
+  <div class="cell cell--markets"><div class="num">US<span>+UK</span></div><div class="lbl lbl--geo">UAE + Europe</div><div class="lbl">Primary markets</div></div>
 </div>
 
 
@@ -1796,43 +1827,43 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="ticker-inner">
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="UP Inspections &amp; Building Consultants" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="Loddon Cars" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="CLS Health" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="CLS Health" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="City Orthopaedics &amp; Sports Medicine" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo   Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
   </div>
 </div>
@@ -2059,7 +2090,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
       <button class="pkg-btn pkg-btn-secondary">Get started</button>
     </div>
   </div>
-  <p class="pkg-footnote">Not sure which plan fits? Book a free 15-min call.</p>
+  <p class="pkg-footnote">Not sure which plan fits? <a href="#m-contact" class="pkg-footnote-link">Book a free 15-min call</a> — I'll recommend the right one for you.</p>
   <div class="urgency-bar"><span class="urgency-dot"></span>Precision, consistency, and results — that’s the standard here.s</div>
 </section>
 
@@ -2068,26 +2099,27 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="eyebrow">Etsy Shop</div>
   <h2>Not ready for a full package?<br>Start with a <em>template kit.</em></h2>
   <p style="color:var(--text-secondary);font-size:13px;margin:10px 0 0;font-weight:300;">Ready-made Canva kits for healthcare, real estate, and business. Instant download, fully editable.</p>
+  <p class="limited-discounts">Limited discounts — all kits <strong>$9.99</strong> each</p>
   <div class="etsy-kits">
     <div class="etsy-kit-row">
       <div class="kit-icon" style="background:rgba(34,197,94,0.1);">🦴</div>
       <div><div class="kit-name">Orthopaedic Social Kit</div><div class="kit-desc">30 done-for-you posts</div></div>
-      <div class="kit-price">$14.99</div>
+      <div class="kit-price">$9.99</div>
     </div>
     <div class="etsy-kit-row">
       <div class="kit-icon" style="background:rgba(59,130,246,0.1);">🦷</div>
       <div><div class="kit-name">Dental Social Kit</div><div class="kit-desc">30 posts for dental practices</div></div>
-      <div class="kit-price">$14.99</div>
+      <div class="kit-price">$9.99</div>
     </div>
     <div class="etsy-kit-row">
       <div class="kit-icon" style="background:rgba(168,85,247,0.1);">🏠</div>
       <div><div class="kit-name">Realtor Social Kit</div><div class="kit-desc">30 posts for real estate agents</div></div>
-      <div class="kit-price">$14.99</div>
+      <div class="kit-price">$9.99</div>
     </div>
     <div class="etsy-kit-row">
       <div class="kit-icon" style="background:rgba(251,191,36,0.1);">💼</div>
       <div><div class="kit-name">Freelancer Client Kit</div><div class="kit-desc">Invoice, proposal, onboarding</div></div>
-      <div class="kit-price">$16.99</div>
+      <div class="kit-price">$9.99</div>
     </div>
     <div class="etsy-kit-row">
       <div class="kit-icon" style="background:rgba(239,68,68,0.1);">✉️</div>
@@ -2098,7 +2130,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <a href="https://truemarktemplates.etsy.com" target="_blank" rel="noopener" class="btn-green-full" style="margin-bottom:4px;">Browse all templates on Etsy →</a>
   <div class="etsy-box">
     <h3 class="etsy-shop-logo">
-      <img class="brand-logo brand-logo--etsy" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="200" height="48" />
+      <img class="brand-logo brand-logo--etsy" src="TrueMark Transparent logo-11transparent.png" alt="TrueMark Templates" width="260" height="62" />
     </h3>
     <p>A growing library of professionally designed digital template kits. Each product built for a specific audience.</p>
     <div class="etsy-stats">
@@ -2136,7 +2168,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"He did a wonderful job, was SO fast and responsive. Very grateful for his help and easy-going personality."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Social media manager</div><div class="reviewer-role">Jan 30, 2025 - Mar 11, 2025</div></div>
         </div>
       </div>
 
@@ -2145,7 +2177,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"Followed the brief perfectly and constantly checked in to ensure designs were on track. Will 100% work again."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Café's Social Media</div><div class="reviewer-role">Apr 19, 2026 - Present</div></div>
         </div>
       </div>
 
@@ -2154,7 +2186,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"Excellent service. Great communicator — adjusts as needed to make it perfect every single time."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Medical Infographic CLS</div><div class="reviewer-role">Feb 7, 2026 - April 28, 2026</div></div>
         </div>
       </div>
 
@@ -2227,27 +2259,30 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <a href="https://calendar.app.google/yfSZRHDjrdNg3PZJ6" target="_blank" rel="noopener noreferrer" class="btn-green-full">Schedule a call (Google Calendar) →</a>
   </div>
 
-  <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" placeholder="John Smith"/></div>
-  <div class="form-group"><label class="form-label">Email address</label><input class="form-input" type="email" placeholder="john@yourbusiness.com"/></div>
-  <div class="form-group"><label class="form-label">Business type</label><input class="form-input" type="text" placeholder="Clinic, Agency, Real estate, Coaching..."/></div>
-  <div class="form-group"><label class="form-label">What do you need?</label><input class="form-input" type="text" placeholder="Social media, design, GMB, templates..."/></div>
-  <button class="form-submit">Send message →</button>
+  <form class="contact-form" id="m-contactForm" action="https://formspree.io/f/mzdywwvl" method="POST">
+    <input type="hidden" name="_subject" value="TrueMark — Website contact form" />
+    <div class="form-group"><label class="form-label" for="m-cf-name">Your name</label><input class="form-input" id="m-cf-name" name="name" type="text" autocomplete="name" placeholder="John Smith" required minlength="2" /></div>
+    <div class="form-group"><label class="form-label" for="m-cf-email">Email address</label><input class="form-input" id="m-cf-email" name="email" type="email" autocomplete="email" placeholder="john@yourbusiness.com" required /></div>
+    <div class="form-group"><label class="form-label" for="m-cf-business">Business type</label><input class="form-input" id="m-cf-business" name="business_type" type="text" autocomplete="organization" placeholder="Clinic, Agency, Real estate, Coaching..." required /></div>
+    <div class="form-group"><label class="form-label" for="m-cf-needs">What do you need?</label><input class="form-input" id="m-cf-needs" name="needs" type="text" placeholder="Social media, design, GMB, templates..." required /></div>
+    <button class="form-submit" type="submit">Send message →</button>
+  </form>
 </section>
 
 <!-- ===== FINAL CTA ===== -->
-<section class="final-cta">
+<!-- <section class="final-cta">
   <h2>Stop Posting Randomly.<br>Start Growing <em>Consistently.</em></h2>
   <p>Your next customer is scrolling right now. Make sure your brand stops them.</p>
   <div class="final-cta-btns">
     <a href="#m-contact" class="btn-green-full">Get a free quote →</a>
     <a href="#m-packages" class="btn-ghost-full">View packages</a>
   </div>
-</section>
+</section> -->
 
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-brand-name">
-    <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="220" height="52" />
+    <img class="brand-logo" src="TrueMark Transparent logo-11transparent.png" alt="TrueMark Templates" width="280" height="66" />
   </div>
   <p class="footer-tagline">Graphic design &amp; social media management for businesses that mean business.</p>
   <div class="footer-links-grid">
@@ -2287,7 +2322,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <span></span><span></span><span></span>
   </div>
   <a href="#" class="nav-brand">
-    <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="200" height="48" />
+    <img class="brand-logo" src="TrueMark Transparent logo-11transparent.png" alt="TrueMark Templates" width="260" height="62" />
   </a>
   <a href="#m-contact" class="nav-cta">Get a Quote</a>
 </nav>
@@ -2296,7 +2331,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 <!-- ============ NAVIGATION ============ -->
 <nav>
   <a href="#" class="nav-brand">
-    <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="220" height="52" />
+    <img class="brand-logo" src="TrueMark Transparent logo-11transparent.png" alt="TrueMark Templates" width="280" height="66" />
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -2351,7 +2386,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
   <div class="cell"><div class="num">6<span>+</span></div><div class="lbl">Years experience</div></div>
   <div class="cell"><div class="num">100<span>%</span></div><div class="lbl">Job success · Upwork</div></div>
   <div class="cell"><div class="num">5<span>★</span></div><div class="lbl">Average rating</div></div>
-  <div class="cell"><div class="num">US<span>, UK</span></div><div class="lbl">UAE & Europe</div>   </div>
+  <div class="cell cell--markets"><div class="num">US<span>, UK</span></div><div class="lbl lbl--geo">UAE & Europe</div>   </div>
 </div>
 
 <!-- ============ TICKER — 5× cycle per half (matches mobile) for full-width marquee ============ -->
@@ -2360,43 +2395,43 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="UP Inspections &amp; Building Consultants" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="Loddon Cars" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
     
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="CLS Health" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="CLS Health" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="City Orthopaedics &amp; Sports Medicine" loading="eager" decoding="async" /></span><span class="tick-sep">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/High Res Final Logo COLOR BLACK (space on outside-not transparent) (2).jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/LODDON CARS.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
-    <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/Logo Transparent-06.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
+    <span class="tick-logo-wrap"><img class="tick-logo" src="CLS logo design-03.jpg" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span>
     <!-- <span class="tick-logo-wrap"><img class="tick-logo" src="Images/Client Logos/COSM LOGO ONLY COLOR &amp; WHITE SQUARE INSTA DP 02.png" alt="" loading="eager" decoding="async" aria-hidden="true" /></span><span class="tick-sep" aria-hidden="true">✦</span> -->
   </div>
 </div>
@@ -2633,7 +2668,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
       <button class="pkg-btn pkg-btn-secondary">Get started</button>
     </div>
   </div>
-  <p class="pkg-footnote">Not sure which plan fits? Book a free 15-min call — I'll recommend the right one for you.</p>
+  <p class="pkg-footnote">Not sure which plan fits? <a href="#contact" class="pkg-footnote-link">Book a free 15-min call</a> — I'll recommend the right one for you.</p>
   <div class="urgency-bar"><span class="urgency-dot"></span> Precision, consistency, and results — that’s the standard here.</div>
 </section>
 
@@ -2644,31 +2679,32 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     <div class="etsy-left">
       <div class="etsy-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        <img class="brand-logo brand-logo--label" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="" width="200" height="50" aria-hidden="true" />
+        <img class="brand-logo brand-logo--label" src="TrueMark Transparent logo-11transparent.png" alt="" width="260" height="65" aria-hidden="true" />
         <span class="etsy-label-suffix">on Etsy</span>
       </div>
       <h2>Not ready for a full package?<br>Start with a <em>template kit.</em></h2>
       <p>Browse our growing collection of ready-made Canva template kits — professionally designed for healthcare, real estate, and business professionals. Instant download, fully editable, post-ready in minutes. No design skills needed.</p>
+      <p class="limited-discounts">Limited discounts — all kits <strong>$9.99</strong> each</p>
       <div class="etsy-kits">
         <div class="etsy-kit-row">
           <div class="kit-icon" style="background:rgba(34,197,94,0.1);">🦴</div>
           <div><div class="kit-name">Orthopaedic Social Kit</div><div class="kit-desc">30 done-for-you posts for orthopaedic clinics</div></div>
-          <div class="kit-price">$14.99</div>
+          <div class="kit-price">$9.99</div>
         </div>
         <div class="etsy-kit-row">
           <div class="kit-icon" style="background:rgba(59,130,246,0.1);">🦷</div>
           <div><div class="kit-name">Dental Social Kit</div><div class="kit-desc">30 posts for dental practices</div></div>
-          <div class="kit-price">$14.99</div>
+          <div class="kit-price">$9.99</div>
         </div>
         <div class="etsy-kit-row">
           <div class="kit-icon" style="background:rgba(168,85,247,0.1);">🏠</div>
           <div><div class="kit-name">Realtor Social Kit</div><div class="kit-desc">30 posts for real estate agents</div></div>
-          <div class="kit-price">$14.99</div>
+          <div class="kit-price">$9.99</div>
         </div>
         <div class="etsy-kit-row">
           <div class="kit-icon" style="background:rgba(251,191,36,0.1);">💼</div>
           <div><div class="kit-name">Freelancer Client Kit</div><div class="kit-desc">Invoice, proposal, onboarding &amp; more</div></div>
-          <div class="kit-price">$16.99</div>
+          <div class="kit-price">$9.99</div>
         </div>
         <div class="etsy-kit-row">
           <div class="kit-icon" style="background:rgba(239,68,68,0.1);">✉️</div>
@@ -2680,7 +2716,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
     </div>
     <div class="etsy-right">
       <h3 class="etsy-shop-logo">
-        <img class="brand-logo brand-logo--etsy" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="220" height="52" />
+        <img class="brand-logo brand-logo--etsy" src="TrueMark Transparent logo-11transparent.png" alt="TrueMark Templates" width="300" height="72" />
       </h3>
       <p>Our Etsy shop is home to a growing library of professionally designed digital template kits. Each product is built for a specific audience — so you get exactly what you need.</p>
       <div class="etsy-stats">
@@ -2717,7 +2753,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"He did a wonderful job, was SO fast and responsive. Very grateful for his help and easy-going personality."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Social media manager</div><div class="reviewer-role">Jan 30, 2025 - Mar 11, 2025</div></div>
         </div>
       </div>
 
@@ -2726,7 +2762,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"Followed the brief perfectly and constantly checked in to ensure designs were on track. Will 100% work again."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Café's Social Media</div><div class="reviewer-role">Apr 19, 2026 - Present</div></div>
         </div>
       </div>
 
@@ -2735,7 +2771,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"Excellent service. Great communicator — adjusts as needed to make it perfect every single time."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Medical Infographic CLS</div><div class="reviewer-role">Feb 7, 2026 - April 28, 2026</div></div>
         </div>
       </div>
 
@@ -2754,7 +2790,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"He did a wonderful job, was SO fast and responsive. Very grateful for his help and easy-going personality."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Social media manager</div><div class="reviewer-role">Jan 30, 2025 - Mar 11, 2025</div></div>
         </div>
       </div>
 
@@ -2763,7 +2799,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"Followed the brief perfectly and constantly checked in to ensure designs were on track. Will 100% work again."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Café's Social Media</div><div class="reviewer-role">Apr 19, 2026 - Present</div></div>
         </div>
       </div>
 
@@ -2772,7 +2808,7 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
         <p class="review-quote">"Excellent service. Great communicator — adjusts as needed to make it perfect every single time."</p>
         <div class="review-author">
           <div class="reviewer-av">U</div>
-          <div><div class="reviewer-name">Upwork Client</div><div class="reviewer-role">Verified review · 5 stars</div></div>
+          <div><div class="reviewer-name">Medical Infographic CLS</div><div class="reviewer-role">Feb 7, 2026 - April 28, 2026</div></div>
         </div>
       </div>
 
@@ -2841,11 +2877,12 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
       <a href="https://calendar.app.google/yfSZRHDjrdNg3PZJ6" target="_blank" rel="noopener noreferrer" class="btn btn-green" style="width:100%;justify-content:center;">Schedule a call (Google Calendar) →</a>
     </div>
     <div>
-      <form action="https://formspree.io/f/mzdywwvl" method="POST" id="contactForm">
-        <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" name="name" placeholder="John Smith"/></div>
-        <div class="form-group"><label class="form-label">Email address</label><input class="form-input" type="email" name="email" placeholder="john@yourbusiness.com"/></div>
-        <div class="form-group"><label class="form-label">Business type</label><input class="form-input" type="text" name="business_type" placeholder="e.g. Clinic, Agency, Real estate, Coaching"/></div>
-        <div class="form-group"><label class="form-label">What do you need?</label><input class="form-input" type="text" name="needs" placeholder="Social media package, design, GMB, templates..."/></div>
+      <form class="contact-form" action="https://formspree.io/f/mzdywwvl" method="POST" id="contactForm">
+        <input type="hidden" name="_subject" value="TrueMark — Website contact form" />
+        <div class="form-group"><label class="form-label" for="cf-name">Your name</label><input class="form-input" id="cf-name" type="text" name="name" placeholder="John Smith" autocomplete="name" required minlength="2" /></div>
+        <div class="form-group"><label class="form-label" for="cf-email">Email address</label><input class="form-input" id="cf-email" type="email" name="email" placeholder="john@yourbusiness.com" autocomplete="email" required /></div>
+        <div class="form-group"><label class="form-label" for="cf-business">Business type</label><input class="form-input" id="cf-business" type="text" name="business_type" placeholder="e.g. Clinic, Agency, Real estate, Coaching" autocomplete="organization" required /></div>
+        <div class="form-group"><label class="form-label" for="cf-needs">What do you need?</label><input class="form-input" id="cf-needs" type="text" name="needs" placeholder="Social media package, design, GMB, templates..." required /></div>
         <button class="form-submit" type="submit">Send message →</button>
       </form>
     </div>
@@ -2853,21 +2890,21 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="final-cta">
+<!-- <section class="final-cta">
   <h2>Stop Posting Randomly.<br>Start Growing <em>Consistently.</em></h2>
   <p>Your next customer is scrolling right now. Make sure your brand stops them.</p>
   <div class="final-cta-btns">
     <a href="#contact" class="btn btn-green" style="font-size:14px;padding:16px 44px;">Get a free quote →</a>
     <a href="#packages" class="btn btn-blue" style="font-size:14px;padding:16px 36px;">View packages</a>
   </div>
-</section>
+</section> -->
 
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">
-        <img class="brand-logo" src="Images/Logo Design Transparent/Logo Design-(Black Background).png" alt="TrueMark Templates" width="240" height="56" />
+        <img class="brand-logo" src="TrueMark Transparent logo-11transparent.png" alt="TrueMark Templates" width="320" height="74" />
       </div>
       <p class="footer-tagline">Graphic design &amp; social media management for businesses that mean business.</p>
     </div>
@@ -2909,6 +2946,15 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 </div>
 </div>
 
+<!-- Query received (Formspree success) -->
+<div id="thankYouPopup" class="thank-you-popup" role="dialog" aria-modal="true" aria-labelledby="queryReceivedTitle">
+  <div class="popup-content">
+    <div class="popup-icon" aria-hidden="true">✓</div>
+    <h3 id="queryReceivedTitle">Query&nbsp;Received</h3>
+    <p>Thank you — we’ve received your message and will get back to you soon.</p>
+    <button type="button" class="btn btn-green popup-close">Close</button>
+  </div>
+</div>
 
 <!-- Lenis Smooth Scroll -->
 <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
@@ -2920,107 +2966,144 @@ footer { background: #01020a; padding: 52px 48px; border-top: 1px solid var(--bo
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
 
 <script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  // Clear previous errors
-  const form = this;
-  const inputs = form.querySelectorAll('.form-input');
-  const errorMessages = form.querySelectorAll('.form-error-message');
-  
-  inputs.forEach(input => input.classList.remove('error'));
-  errorMessages.forEach(msg => msg.remove());
-  
-  // Validation function
-  function validateField(input, fieldName, validationType = 'required') {
-    const value = input.value.trim();
-    let errorMessage = '';
-    
+(function () {
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzdywwvl';
+
+  function validateField(input, fieldName, validationType) {
+    var value = (input && input.value) ? input.value.trim() : '';
+    var errorMessage = '';
     if (validationType === 'required' && !value) {
-      errorMessage = `${fieldName} is required`;
-    } else if (validationType === 'email' && value) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) {
-        errorMessage = 'Please enter a valid email address';
-      }
-    } else if (validationType === 'minlength' && value.length < 2) {
-      errorMessage = `${fieldName} must be at least 2 characters`;
+      errorMessage = fieldName + ' is required';
+    } else if (validationType === 'email') {
+      if (!value) errorMessage = fieldName + ' is required';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) errorMessage = 'Please enter a valid email address';
+    } else if (validationType === 'minlength') {
+      if (!value) errorMessage = fieldName + ' is required';
+      else if (value.length < 2) errorMessage = fieldName + ' must be at least 2 characters';
     }
-    
     if (errorMessage) {
       input.classList.add('error');
-      const errorDiv = document.createElement('div');
+      var errorDiv = document.createElement('div');
       errorDiv.className = 'form-error-message';
       errorDiv.textContent = errorMessage;
       input.parentNode.appendChild(errorDiv);
       return false;
     }
-    
     return true;
   }
-  
-  // Validate all fields
-  const nameInput = form.querySelector('input[name="name"]');
-  const emailInput = form.querySelector('input[name="email"]');
-  const businessInput = form.querySelector('input[name="business_type"]');
-  const needsInput = form.querySelector('input[name="needs"]');
-  
-  const isNameValid = validateField(nameInput, 'Name', 'minlength');
-  const isEmailValid = validateField(emailInput, 'Email', 'email');
-  const isBusinessValid = validateField(businessInput, 'Business type', 'required');
-  const isNeedsValid = validateField(needsInput, 'What you need', 'required');
-  
-  // If all fields are valid, submit the form
-  if (isNameValid && isEmailValid && isBusinessValid && isNeedsValid) {
-    // Show thank you popup
-    const popup = document.getElementById('thankYouPopup');
-    popup.style.display = 'flex';
-    
-    // Submit the form to Formspree
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Form submitted successfully:', data);
-    })
-    .catch(error => {
-      console.error('Form submission error:', error);
-      // Fallback to normal form submission if fetch fails
-      form.submit();
-    });
-    
-    // Hide popup after 5 seconds
-    setTimeout(function() {
-      popup.style.display = 'none';
-    }, 5000);
-    
-    // Reset form
-    form.reset();
-  } else {
-    // Scroll to first error
-    const firstError = form.querySelector('.form-input.error');
-    if (firstError) {
-      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      firstError.focus();
-    }
-  }
-});
 
-// Remove error styling on input
-document.querySelectorAll('#contactForm .form-input').forEach(input => {
-  input.addEventListener('input', function() {
-    this.classList.remove('error');
-    const errorMessage = this.parentNode.querySelector('.form-error-message');
-    if (errorMessage) {
-      errorMessage.remove();
-    }
+  function clearErrors(form) {
+    form.querySelectorAll('.form-input').forEach(function (input) { input.classList.remove('error'); });
+    form.querySelectorAll('.form-error-message').forEach(function (msg) { msg.remove(); });
+  }
+
+  function openThankYouPopup() {
+    var popup = document.getElementById('thankYouPopup');
+    if (!popup) return;
+    popup.classList.add('is-open');
+    var closeBtn = popup.querySelector('.popup-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeThankYouPopup() {
+    var popup = document.getElementById('thankYouPopup');
+    if (!popup) return;
+    popup.classList.remove('is-open');
+  }
+
+  document.querySelectorAll('form.contact-form').forEach(function (form) {
+    if (!form.action) form.action = FORMSPREE_ENDPOINT;
+
+    form.querySelectorAll('.form-input').forEach(function (input) {
+      input.addEventListener('input', function () {
+        this.classList.remove('error');
+        var err = this.parentNode.querySelector('.form-error-message');
+        if (err) err.remove();
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearErrors(form);
+
+      var nameInput = form.querySelector('input[name="name"]');
+      var emailInput = form.querySelector('input[name="email"]');
+      var businessInput = form.querySelector('input[name="business_type"]');
+      var needsInput = form.querySelector('input[name="needs"]');
+
+      var ok =
+        validateField(nameInput, 'Name', 'minlength') &&
+        validateField(emailInput, 'Email', 'email') &&
+        validateField(businessInput, 'Business type', 'required') &&
+        validateField(needsInput, 'What you need', 'required');
+
+      if (!ok) {
+        var firstError = form.querySelector('.form-input.error');
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstError.focus();
+        }
+        return;
+      }
+
+      var btn = form.querySelector('[type="submit"]');
+      var prevText = btn ? btn.textContent : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+      }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (res) {
+          return res.json().then(function (data) {
+            return { res: res, data: data };
+          });
+        })
+        .then(function (_ref) {
+          var res = _ref.res;
+          var data = _ref.data;
+          if (res.ok) {
+            form.reset();
+            clearErrors(form);
+            openThankYouPopup();
+          } else {
+            var msg =
+              (data && data.error) ||
+              (data.errors && data.errors[0] && data.errors[0].message) ||
+              'Could not send. Please try again or email us directly.';
+            alert(msg);
+          }
+        })
+        .catch(function () {
+          alert('Network error. Please check your connection and try again.');
+        })
+        .finally(function () {
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = prevText;
+          }
+        });
+    });
   });
-});
+
+  var popup = document.getElementById('thankYouPopup');
+  if (popup) {
+    var closeBtn = popup.querySelector('.popup-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeThankYouPopup);
+    }
+    popup.addEventListener('click', function (e) {
+      if (e.target === popup) closeThankYouPopup();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeThankYouPopup();
+    });
+  }
+})();
 
 // Add click functionality to all "Get started" buttons
 document.querySelectorAll('.layout-desktop .pkg-btn').forEach(button => {
@@ -3438,6 +3521,7 @@ reviewsScroll.addEventListener('scroll', () => {
         if (el.closest('.js-split-hero')) return; // Skip hero title
         if (el.closest('.service-card')) return; // Static service cards (no text scrub)
         if (el.closest('.problem-section')) return; // Avoid overlap / clipped lines with pin removed
+        if (el.closest('.thank-you-popup')) return; // Keep modal title spacing (SplitType strips word gaps)
 
         const split = new SplitType(el, { types: 'lines, words' });
         gsap.set(split.lines, { overflow: 'hidden' });
